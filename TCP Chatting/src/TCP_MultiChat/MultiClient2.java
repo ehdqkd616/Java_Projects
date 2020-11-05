@@ -1,0 +1,70 @@
+package TCP_MultiChat;
+
+import java.io.IOException;
+import java.net.Socket;
+import java.net.UnknownHostException;
+
+public class MultiClient2 {
+
+	public static void main(String[] args) {
+		Socket socket = null;
+		String ipNumber = ""; // 연결할 IP
+		int portNumber = 0; // 연결할 Port 번호
+
+		try {
+
+			//////////////////////////////////////////////////////////
+			// 1. IP 주소 입력 사항 확인
+			//////////////////////////////////////////////////////////
+			if (args.length != 2) {
+				System.out.println("Server IP, Port 입력 바랍니다.");
+				System.exit(0);
+			} else {
+				ipNumber = args[0];
+				portNumber = Integer.parseInt(args[1]);
+			}
+			//////////////////////////////////////////////////////////
+
+			////////////////////////////////////////////
+			// 2. Server 에서 열어놓은 Port 로 접속
+			////////////////////////////////////////////
+			socket = new Socket(ipNumber, portNumber);
+			////////////////////////////////////////////
+
+			///////////////////////////////////////////////////////////////////////
+			// 3. Thread 를 가진 MultiClientThread2 객체 생성
+			///////////////////////////////////////////////////////////////////////
+			MultiClientThread2 multiClientThread2 = new MultiClientThread2(socket);
+			///////////////////////////////////////////////////////////////////////
+
+			//////////////////////////////
+			// 4. ID 입력
+			//////////////////////////////
+			multiClientThread2.login();
+			//////////////////////////////
+
+			// chatter.ready(); // 대화 시작을 기다린다.
+
+			////////////////////////////
+			// 5. 채팅 시작(메시지 보기)
+			////////////////////////////
+			multiClientThread2.start();
+			////////////////////////////
+
+			//////////////////////////////////
+			// 6. 채팅 시작 (메시지 입력)
+			//////////////////////////////////
+			multiClientThread2.chatProcess();
+			//////////////////////////////////
+
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+
+	}
+
+}
