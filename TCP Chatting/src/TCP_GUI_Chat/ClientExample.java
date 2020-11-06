@@ -20,7 +20,7 @@ public class ClientExample extends Application {
     Socket socket;
 
     void startClient(){
-        // ¿¬°á ½ÃÀÛ ÄÚµå
+        // ì—°ê²° ì‹œì‘ ì½”ë“œ
         Thread thread = new Thread(){
             @Override
             public void run(){
@@ -28,17 +28,17 @@ public class ClientExample extends Application {
                     socket = new Socket();
                     socket.connect(new InetSocketAddress("localhost", 5001));
                     Platform.runLater(()->{
-                        displayText("[¿¬°á ¿Ï·á:  " + socket.getRemoteSocketAddress() + "]");
+                        displayText("[ì—°ê²° ì™„ë£Œ:  " + socket.getRemoteSocketAddress() + "]");
                         btnConn.setText("stop");
                         btnSend.setDisable(false);
                     });
                 }catch(Exception e){
-                    Platform.runLater(()->displayText("[¼­¹ö Åë½Å ¾ÈµÊ]"));
+                    Platform.runLater(()->displayText("[ì„œë²„ í†µì‹  ì•ˆë¨]"));
                     if(!socket.isClosed()) { stopClient(); }
                     return;
                 }
 
-                receive(); // ¼­¹ö¿¡¼­ º¸³½ µ¥ÀÌÅÍ ¹Ş±â
+                receive(); // ì„œë²„ì—ì„œ ë³´ë‚¸ ë°ì´í„° ë°›ê¸°
             }
         };
 
@@ -46,10 +46,10 @@ public class ClientExample extends Application {
     }
 
     void stopClient(){
-        // ¿¬°á ²÷±â ÄÚµå
+        // ì—°ê²° ëŠê¸° ì½”ë“œ
         try{
             Platform.runLater(()->{
-                displayText("[¿¬°á ²÷À½]");
+                displayText("[ì—°ê²° ëŠìŒ]");
                 btnConn.setText("start");
                 btnSend.setDisable(true);
             });
@@ -60,7 +60,7 @@ public class ClientExample extends Application {
     }
 
     void receive(){
-        // µ¥ÀÌÅÍ ¹Ş±â ÄÚµå
+        // ë°ì´í„° ë°›ê¸° ì½”ë“œ
         while(true){
             try {
                 byte[] byteArr = new byte[100];
@@ -71,9 +71,9 @@ public class ClientExample extends Application {
 
                 String data = new String(byteArr, 0, readByteCount, "UTF-8");
 
-                Platform.runLater(()->displayText("[¹Ş±â ¿Ï·á]  " + data));
+                Platform.runLater(()->displayText("[ë°›ê¸° ì™„ë£Œ]  " + data));
             } catch (IOException e) {
-                Platform.runLater(()->displayText("[¼­¹ö Åë½Å ¾ÈµÊ]"));
+                Platform.runLater(()->displayText("[ì„œë²„ í†µì‹  ì•ˆë¨]"));
                 stopClient();
                 break;
             }
@@ -81,7 +81,7 @@ public class ClientExample extends Application {
     }
 
     void send(String data){
-        // µ¥ÀÌÅÍ Àü¼Û ÄÚµå
+        // ë°ì´í„° ì „ì†¡ ì½”ë“œ
         Thread thread = new Thread(){
             @Override
             public void run() {
@@ -90,9 +90,9 @@ public class ClientExample extends Application {
                     OutputStream outputStream = socket.getOutputStream();
                     outputStream.write(byteArr);
                     outputStream.flush();
-                    Platform.runLater(()->displayText("[º¸³»±â ¿Ï·á]"));
+                    Platform.runLater(()->displayText("[ë³´ë‚´ê¸° ì™„ë£Œ]"));
                 } catch (IOException e) {
-                    Platform.runLater(()->displayText("[¼­¹ö Åë½Å ¾ÈµÊ]"));
+                    Platform.runLater(()->displayText("[ì„œë²„ í†µì‹  ì•ˆë¨]"));
                     stopClient();
                 }
 
@@ -102,7 +102,7 @@ public class ClientExample extends Application {
     }
 
     ///////
-    // UI »ı¼º ÄÚµå
+    // UI ìƒì„± ì½”ë“œ
     TextArea txtDisplay;
     TextField txtInput;
     Button btnConn, btnSend;

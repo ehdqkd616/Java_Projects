@@ -20,7 +20,7 @@ public class FindPw extends JFrame {
 
 	public FindPw() {
 		setTitle("PW \uCC3E\uAE30");
-		// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // ÇØ´ç¹®±¸¸¦ ÁÖ¼®Ã³¸®ÇÏ¸é ÇØ´çÇÏ´Â ÆË¾÷¸¸ Á¦°ÅµÊ
+		// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); // í•´ë‹¹ë¬¸êµ¬ë¥¼ ì£¼ì„ì²˜ë¦¬í•˜ë©´ í•´ë‹¹í•˜ëŠ” íŒì—…ë§Œ ì œê±°ë¨
 		setBounds(100, 100, 489, 189);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -33,12 +33,12 @@ public class FindPw extends JFrame {
 		lblI.setBounds(26, 20, 57, 15);
 		contentPane.add(lblI);
 
-		JLabel label = new JLabel("ÀÌ¸§");
+		JLabel label = new JLabel("ì´ë¦„");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setBounds(26, 45, 57, 15);
 		contentPane.add(label);
 
-		JLabel label_1 = new JLabel("»ı³â¿ùÀÏ");
+		JLabel label_1 = new JLabel("ìƒë…„ì›”ì¼");
 		label_1.setHorizontalAlignment(SwingConstants.RIGHT);
 		label_1.setBounds(26, 70, 57, 15);
 		contentPane.add(label_1);
@@ -58,12 +58,12 @@ public class FindPw extends JFrame {
 		textFieldBirth.setBounds(95, 67, 230, 21);
 		contentPane.add(textFieldBirth);
 
-		JLabel lblNewLabel = new JLabel(""); // ¾È³» ¹®±¸ ³ëÃâ
+		JLabel lblNewLabel = new JLabel(""); // ì•ˆë‚´ ë¬¸êµ¬ ë…¸ì¶œ
 		lblNewLabel.setHorizontalAlignment(SwingConstants.CENTER);
 		lblNewLabel.setBounds(26, 113, 435, 15);
 		contentPane.add(lblNewLabel);
 
-		JButton btnNewButton = new JButton("ºñ¹Ğ¹øÈ£ Ã£±â");
+		JButton btnNewButton = new JButton("ë¹„ë°€ë²ˆí˜¸ ì°¾ê¸°");
 		btnNewButton.setBounds(337, 16, 124, 72);
 		btnNewButton.addActionListener(new ActionListener() {
 
@@ -72,18 +72,18 @@ public class FindPw extends JFrame {
 				// TODO Auto-generated method stub
 				String spw = "";
 				if (textFieldId.getText().equals("") || textFieldName.getText().equals("")
-						|| textFieldBirth.getText().equals("")) // ºó°ªÀÌ¸é
+						|| textFieldBirth.getText().equals("")) // ë¹ˆê°’ì´ë©´
 				{
-					LoginMain.ShowMessage("ÀÌ¸§°ú »ı³â¿ùÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					LoginMain.ShowMessage("ì´ë¦„ê³¼ ìƒë…„ì›”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					return;
 				} else
 					spw = FindPwValue(textFieldId.getText(), textFieldName.getText(), textFieldBirth.getText());
 				if (spw.equals("")) {
-					LoginMain.ShowMessage("ÇØ´çÇÏ´Â ¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+					LoginMain.ShowMessage("í•´ë‹¹í•˜ëŠ” ì•„ì´ë””ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				} else {
 					StringBuffer strbuffer = new StringBuffer();
 					strbuffer.append(spw);
-					lblNewLabel.setText("°í°´´ÔÀÇ ºñ¹Ğ¹øÈ£´Â" + PwOutput(strbuffer) + "ÀÔ´Ï´Ù.");
+					lblNewLabel.setText("ê³ ê°ë‹˜ì˜ ë¹„ë°€ë²ˆí˜¸ëŠ”" + PwOutput(strbuffer) + "ì…ë‹ˆë‹¤.");
 				}
 			}
 		});
@@ -109,7 +109,7 @@ public class FindPw extends JFrame {
 		return spw;
 	}
 
-	private StringBuffer PwOutput(StringBuffer sPw) // ID ¾Õ ¼¼ÀÚ¸® ±îÁö¸¸ ³ëÃâÇØÁÖ±â ³ª¸ÓÁö´Â *·Î ³ëÃâ
+	private StringBuffer PwOutput(StringBuffer sPw) // ID ì• ì„¸ìë¦¬ ê¹Œì§€ë§Œ ë…¸ì¶œí•´ì£¼ê¸° ë‚˜ë¨¸ì§€ëŠ” *ë¡œ ë…¸ì¶œ
 	{
 		String str = "";
 		for (int i = 0; i < (sPw.length() - 3); i++) {

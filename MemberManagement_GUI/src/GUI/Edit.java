@@ -17,14 +17,14 @@ import javax.swing.JTextField;
 
 public class Edit extends MemberManagements implements ActionListener{
 	MyFrame frame3 = new MyFrame();
-	JButton eName = new JButton("È¸¿ø ÀÌ¸§");
-	JButton eAge = new JButton("È¸¿ø ³ªÀÌ");
-	JButton eSex = new JButton("È¸¿ø ¼ºº°");
-	JButton ePhone = new JButton("ÀüÈ­¹øÈ£");
-	JButton eJob = new JButton("Á÷Àå¸í");
-	JButton eAddr = new JButton("È¸¿ø ÁÖ¼Ò");
-	JButton eConfirm = new JButton("È®ÀÎ");
-	JButton eCancel = new JButton("Ãë¼Ò");
+	JButton eName = new JButton("íšŒì› ì´ë¦„");
+	JButton eAge = new JButton("íšŒì› ë‚˜ì´");
+	JButton eSex = new JButton("íšŒì› ì„±ë³„");
+	JButton ePhone = new JButton("ì „í™”ë²ˆí˜¸");
+	JButton eJob = new JButton("ì§ì¥ëª…");
+	JButton eAddr = new JButton("íšŒì› ì£¼ì†Œ");
+	JButton eConfirm = new JButton("í™•ì¸");
+	JButton eCancel = new JButton("ì·¨ì†Œ");
 	
 	private JTextField tName;
 	private JTextField tAge;
@@ -36,15 +36,15 @@ public class Edit extends MemberManagements implements ActionListener{
 	String name=null, age=null, selectSex=null, phone=null,job=null, addr =null;
 	public Edit(int index) {
 		frame3.getContentPane().setEnabled(false);
-		frame3.setTitle("¼öÁ¤");
+		frame3.setTitle("ìˆ˜ì •");
 		frame3.setSize(409, 295);
 		frame3.setLocation(550, 350);
 		frame3.setDefaultCloseOperation(frame3.EXIT_ON_CLOSE);
 		
 		this.index = index - 1;
 		
-		JLabel lblNewLabel = new JLabel("¼öÁ¤");
-		lblNewLabel.setFont(new Font("±¼¸²", Font.PLAIN, 18));
+		JLabel lblNewLabel = new JLabel("ìˆ˜ì •");
+		lblNewLabel.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 18));
 		lblNewLabel.setBounds(12, 10, 47, 23);
 		frame3.getContentPane().add(lblNewLabel);
 		
@@ -72,27 +72,27 @@ public class Edit extends MemberManagements implements ActionListener{
 		eCancel.setBounds(218, 222, 105, 25);
 		frame3.getContentPane().add(eCancel);
 		
-		JLabel name = new JLabel("ÀÌ¸§ : ");
+		JLabel name = new JLabel("ì´ë¦„ : ");
 		name.setBounds(12, 43, 57, 15);
 		frame3.getContentPane().add(name);
 		
-		JLabel age = new JLabel("³ªÀÌ : ");
+		JLabel age = new JLabel("ë‚˜ì´ : ");
 		age.setBounds(12, 73, 57, 15);
 		frame3.getContentPane().add(age);
 		
-		JLabel sex = new JLabel("¼ºº° : ");
+		JLabel sex = new JLabel("ì„±ë³„ : ");
 		sex.setBounds(12, 103, 57, 15);
 		frame3.getContentPane().add(sex);
 		
-		JLabel phone = new JLabel("ÀüÈ­¹øÈ£ : ");
+		JLabel phone = new JLabel("ì „í™”ë²ˆí˜¸ : ");
 		phone.setBounds(12, 133, 83, 15);
 		frame3.getContentPane().add(phone);
 		
-		JLabel job = new JLabel("Á÷Àå¸í : ");
+		JLabel job = new JLabel("ì§ì¥ëª… : ");
 		job.setBounds(12, 163, 57, 15);
 		frame3.getContentPane().add(job);
 		
-		JLabel addr = new JLabel("ÁÖ¼Ò : ");
+		JLabel addr = new JLabel("ì£¼ì†Œ : ");
 		addr.setBounds(12, 193, 57, 15);
 		frame3.getContentPane().add(addr);
 		
@@ -154,31 +154,31 @@ public class Edit extends MemberManagements implements ActionListener{
 	public void actionPerformed(ActionEvent e) {
 		int check;
 		if(e.getSource() == eName){
-			check = JOptionPane.showConfirmDialog(this, "¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?\n" + 
-					"È¸¿ø ÀÌ¸§ : " + tName.getText() ,"¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE );
+			check = JOptionPane.showConfirmDialog(this, "ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n" + 
+					"íšŒì› ì´ë¦„ : " + tName.getText() ,"ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE );
 			if(check ==0){
-				name = JOptionPane.showInputDialog("¼öÁ¤ÇÒ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä", list.get(this.index).getName());
+				name = JOptionPane.showInputDialog("ìˆ˜ì •í•  ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”", list.get(this.index).getName());
 				tName.setText(name);
 				if(name == null){
 					tName.setText(list.get(this.index).getName());
 				}
 			}
 		}else if(e.getSource() == eAge){
-			check = JOptionPane.showConfirmDialog(this, "¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?\n" + 
-					"È¸¿ø ³ªÀÌ : " + tAge.getText() ,"¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE );
+			check = JOptionPane.showConfirmDialog(this, "ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n" + 
+					"íšŒì› ë‚˜ì´ : " + tAge.getText() ,"ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE );
 			if(check ==0){
-				age = JOptionPane.showInputDialog("¼öÁ¤ÇÒ ³ªÀÌ¸¦ ÀÔ·ÂÇÏ¼¼¿ä", list.get(this.index).getAge());
+				age = JOptionPane.showInputDialog("ìˆ˜ì •í•  ë‚˜ì´ë¥¼ ì…ë ¥í•˜ì„¸ìš”", list.get(this.index).getAge());
 				tAge.setText(age);
 				if(age == null){
 					tAge.setText(list.get(this.index).getAge());
 				}
 			}
 		}else if(e.getSource() == eSex){
-			check = JOptionPane.showConfirmDialog(this, "¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?\n" + 
-					"È¸¿ø ¼ºº° : " + tSex.getText() ,"¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE );
+			check = JOptionPane.showConfirmDialog(this, "ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n" + 
+					"íšŒì› ì„±ë³„ : " + tSex.getText() ,"ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE );
 			if(check ==0){
-				String[] str = {"³²ÀÚ", "¿©ÀÚ"};
-				selectSex = (String)JOptionPane.showInputDialog(this, "¼öÁ¤ÇÒ ¼ºº°À» ÀÔ·ÂÇÏ¼¼¿ä\n" , "¸Ş½ÃÁö",
+				String[] str = {"ë‚¨ì", "ì—¬ì"};
+				selectSex = (String)JOptionPane.showInputDialog(this, "ìˆ˜ì •í•  ì„±ë³„ì„ ì…ë ¥í•˜ì„¸ìš”\n" , "ë©”ì‹œì§€",
 						JOptionPane.INFORMATION_MESSAGE,	null, str, str[0]);
 				tSex.setText(selectSex);
 				if(selectSex == null){
@@ -186,30 +186,30 @@ public class Edit extends MemberManagements implements ActionListener{
 				}
 			}
 		}else if(e.getSource() == ePhone){
-			check = JOptionPane.showConfirmDialog(this, "¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?\n" + 
-					"ÀüÈ­¹øÈ£ : " + tPhone.getText() ,"¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE );
+			check = JOptionPane.showConfirmDialog(this, "ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n" + 
+					"ì „í™”ë²ˆí˜¸ : " + tPhone.getText() ,"ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE );
 			if(check ==0){
-				phone = JOptionPane.showInputDialog("¼öÁ¤ÇÒ ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä", list.get(this.index).getPhone());
+				phone = JOptionPane.showInputDialog("ìˆ˜ì •í•  ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”", list.get(this.index).getPhone());
 				tPhone.setText(phone);
 				if(phone == null){
 					tPhone.setText(list.get(this.index).getPhone());
 				}
 			}
 		}else if(e.getSource() == eJob){
-			check = JOptionPane.showConfirmDialog(this, "¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?\n" + 
-					"Á÷Àå¸í : " + tJob.getText() ,"¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE );
+			check = JOptionPane.showConfirmDialog(this, "ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n" + 
+					"ì§ì¥ëª… : " + tJob.getText() ,"ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE );
 			if(check ==0){
-				job = JOptionPane.showInputDialog("¼öÁ¤ÇÒ Á÷Àå¸íÀ» ÀÔ·ÂÇÏ¼¼¿ä", list.get(this.index).getJob());
+				job = JOptionPane.showInputDialog("ìˆ˜ì •í•  ì§ì¥ëª…ì„ ì…ë ¥í•˜ì„¸ìš”", list.get(this.index).getJob());
 				tJob.setText(job);
 				if(job == null){
 					tJob.setText(list.get(this.index).getJob());
 				}
 			}
 		}else if(e.getSource() == eAddr){
-			check = JOptionPane.showConfirmDialog(this, "¼öÁ¤ÇÏ½Ã°Ú½À´Ï±î?\n" + 
-					"È¸¿ø ÁÖ¼Ò : " + tAddr.getText() ,"¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE );
+			check = JOptionPane.showConfirmDialog(this, "ìˆ˜ì •í•˜ì‹œê² ìŠµë‹ˆê¹Œ?\n" + 
+					"íšŒì› ì£¼ì†Œ : " + tAddr.getText() ,"ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE );
 			if(check ==0){
-				addr = JOptionPane.showInputDialog("¼öÁ¤ÇÒ ÁÖ¼Ò¸¦ ÀÔ·ÂÇÏ¼¼¿ä", list.get(this.index).getAddr());
+				addr = JOptionPane.showInputDialog("ìˆ˜ì •í•  ì£¼ì†Œë¥¼ ì…ë ¥í•˜ì„¸ìš”", list.get(this.index).getAddr());
 				tAddr.setText(addr);
 				if(addr == null){
 					tAddr.setText(list.get(this.index).getAddr());

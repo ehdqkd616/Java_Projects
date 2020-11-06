@@ -8,24 +8,24 @@ import Login.LoginMain;
 import Login.LoginMain.Status;
 
 public class ButtonHandler implements ActionListener {
-	// ¹öÆ° ´­·¶À» ¶§ ¾×¼Ç
+	// ë²„íŠ¼ ëˆŒë €ì„ ë•Œ ì•¡ì…˜
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		String bt = e.getActionCommand(); // °­Á¦ Çüº¯È¯
+		String bt = e.getActionCommand(); // ê°•ì œ í˜•ë³€í™˜
 		BookMain bookmain = new BookMain();
 		bookmain.model.setNumRows(0);
-		// ±âÁ¸¿¡ »ı¼ºµÇ¾î ÀÖ´Â ÇàÀ» 0À¸·Î ÃÊ±âÈ­ÇØ ¸®½ºÆ® »èÁ¦
+		// ê¸°ì¡´ì— ìƒì„±ë˜ì–´ ìˆëŠ” í–‰ì„ 0ìœ¼ë¡œ ì´ˆê¸°í™”í•´ ë¦¬ìŠ¤íŠ¸ ì‚­ì œ
 		if (bt.equals("Book")) {
 			LoginMain.NowStatus = Status.BOOK;
 		} else if (bt.equals("Customer")) {
 			if (!LoginMain.bLogInStatus) {
 				LoginMain.NowStatus = Status.BOOK;
-				LoginMain.ShowMessage("·Î±×ÀÎ ÈÄ ÀÌ¿ëÀÌ °¡´ÉÇÕ´Ï´Ù.");
+				LoginMain.ShowMessage("ë¡œê·¸ì¸ í›„ ì´ìš©ì´ ê°€ëŠ¥í•©ë‹ˆë‹¤.");
 			} else {
 				LoginMain.NowStatus = Status.CUSTOMER;
 			}
 		} else {
-			LoginMain.ShowMessage("ÁØºñÁßÀÔ´Ï´Ù.");
+			LoginMain.ShowMessage("ì¤€ë¹„ì¤‘ì…ë‹ˆë‹¤.");
 			LoginMain.NowStatus = Status.EMPLOYEE;
 			return;
 		}
@@ -47,9 +47,9 @@ public class ButtonHandler implements ActionListener {
 				int min1, min2 = 0;
 				int sec1, sec2 = 0;
 
-				Calendar rightNow = Calendar.getInstance(); // ÇöÀç½Ã°£À» ÀÔ·Â¹Ş´Â´Ù ÀÌ ¶§ Calendar ¸¦ »ç¿ëÇÒ ¼ö ÀÖ´Ù
+				Calendar rightNow = Calendar.getInstance(); // í˜„ì¬ì‹œê°„ì„ ì…ë ¥ë°›ëŠ”ë‹¤ ì´ ë•Œ Calendar ë¥¼ ì‚¬ìš©í•  ìˆ˜ ìˆë‹¤
 
-				// ½Ã°£À» ¹Ş±â À§ÇØ ÀÌ·± Çü½ÄÀ» ÃëÇØÁà¾ß Á¦´ë·Î ¹Ş´Â´Ù.
+				// ì‹œê°„ì„ ë°›ê¸° ìœ„í•´ ì´ëŸ° í˜•ì‹ì„ ì·¨í•´ì¤˜ì•¼ ì œëŒ€ë¡œ ë°›ëŠ”ë‹¤.
 
 				int second_d = rightNow.get(Calendar.SECOND);
 				int minute_d = rightNow.get(Calendar.MINUTE);

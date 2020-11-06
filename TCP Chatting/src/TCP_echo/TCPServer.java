@@ -31,10 +31,10 @@ public class TCPServer {
         Scanner sc = new Scanner(System.in);
  
         try {
-            // 1. Server Socket »ı¼º
+            // 1. Server Socket ìƒì„±
             serverSocket = new ServerSocket();
  
-            // 2. Binding : Socket¿¡ SocketAddress(IpAddress + Port) ¹ÙÀÎµù ÇÔ
+            // 2. Binding : Socketì— SocketAddress(IpAddress + Port) ë°”ì¸ë”© í•¨
  
             InetAddress inetAddress = InetAddress.getLocalHost();
             String localhost = inetAddress.getHostAddress();
@@ -43,7 +43,7 @@ public class TCPServer {
  
             System.out.println("[server] binding " + localhost);
  
-            // 3. accept(Å¬¶óÀÌ¾ğÆ®·Î ºÎÅÍ ¿¬°á¿äÃ»À» ±â´Ù¸²)
+            // 3. accept(í´ë¼ì´ì–¸íŠ¸ë¡œ ë¶€í„° ì—°ê²°ìš”ì²­ì„ ê¸°ë‹¤ë¦¼)
  
             Socket socket = serverSocket.accept();
             InetSocketAddress socketAddress = (InetSocketAddress) socket.getRemoteSocketAddress();
@@ -53,12 +53,12 @@ public class TCPServer {
  
             while (true) {
  
-                // inputStream °¡Á®¿Í¼­ (ÁÖ ½ºÆ®¸²) StreamReader¿Í BufferedReader·Î °¨½ÎÁØ´Ù (º¸Á¶ ½ºÆ®¸²)
+                // inputStream ê°€ì ¸ì™€ì„œ (ì£¼ ìŠ¤íŠ¸ë¦¼) StreamReaderì™€ BufferedReaderë¡œ ê°ì‹¸ì¤€ë‹¤ (ë³´ì¡° ìŠ¤íŠ¸ë¦¼)
                 is = socket.getInputStream();
                 isr = new InputStreamReader(is, "UTF-8");
                 br = new BufferedReader(isr);
  
-                // outputStream °¡Á®¿Í¼­ (ÁÖ ½ºÆ®¸²) StreamWriter¿Í PrintWriter·Î °¨½ÎÁØ´Ù (º¸Á¶ ½ºÆ®¸²)
+                // outputStream ê°€ì ¸ì™€ì„œ (ì£¼ ìŠ¤íŠ¸ë¦¼) StreamWriterì™€ PrintWriterë¡œ ê°ì‹¸ì¤€ë‹¤ (ë³´ì¡° ìŠ¤íŠ¸ë¦¼)
                 os = socket.getOutputStream();
                 osw = new OutputStreamWriter(os, "UTF-8");
                 pw = new PrintWriter(osw, true);
@@ -67,8 +67,8 @@ public class TCPServer {
                 buffer = br.readLine(); // Blocking
                 if (buffer == null) {
  
-                    // Á¤»óÁ¾·á : remote socket close()
-                    // ¸Ş¼Òµå¸¦ ÅëÇØ¼­ Á¤»óÀûÀ¸·Î ¼ÒÄÏÀ» ´İÀº °æ¿ì
+                    // ì •ìƒì¢…ë£Œ : remote socket close()
+                    // ë©”ì†Œë“œë¥¼ í†µí•´ì„œ ì •ìƒì ìœ¼ë¡œ ì†Œì¼“ì„ ë‹«ì€ ê²½ìš°
                     System.out.println("[server] closed by client");
                     break;
  
@@ -79,8 +79,8 @@ public class TCPServer {
  
             }
  
-            // 3.accept(Å¬¶óÀÌ¾ğÆ®·Î ºÎÅÍ ¿¬°á¿äÃ»À» ±â´Ù¸²)
-            // .. blocking µÇ¸é¼­ ±â´Ù¸®´ÂÁß, connect°¡ µé¾î¿À¸é blockÀÌ Ç®¸²
+            // 3.accept(í´ë¼ì´ì–¸íŠ¸ë¡œ ë¶€í„° ì—°ê²°ìš”ì²­ì„ ê¸°ë‹¤ë¦¼)
+            // .. blocking ë˜ë©´ì„œ ê¸°ë‹¤ë¦¬ëŠ”ì¤‘, connectê°€ ë“¤ì–´ì˜¤ë©´ blockì´ í’€ë¦¼
         } catch (IOException e) {
             e.printStackTrace();
         } finally {

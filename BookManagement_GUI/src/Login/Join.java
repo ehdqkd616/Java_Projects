@@ -30,7 +30,7 @@ public class Join extends JFrame {
 
 	private JLabel Label_pwinfo;
 	private JButton button;
-	private boolean brepetiteChk = false; // ¾ÆÀÌµğ Áßº¹ Ã¼Å©
+	private boolean brepetiteChk = false; // ì•„ì´ë”” ì¤‘ë³µ ì²´í¬
 
 	private void Reset(JTextField textField_Id, JTextField textField_PW, JTextField textField_PwChk,
 			JTextField textField_Name, JTextField textField_Birth, JTextField textField_Phone) {
@@ -111,56 +111,56 @@ public class Join extends JFrame {
 		lblBirth.setBounds(30, 153, 57, 15);
 		contentPane.add(lblBirth);
 
-		Label_pwinfo = new JLabel("¡Ø ¹®ÀÚ, ¼ıÀÚ·Î 8ÀÚ ÀÌ»ó");
+		Label_pwinfo = new JLabel("â€» ë¬¸ì, ìˆ«ìë¡œ 8ì ì´ìƒ");
 		Label_pwinfo.setBounds(277, 58, 145, 15);
 		contentPane.add(Label_pwinfo);
 
-		button = new JButton("Áßº¹ È®ÀÎ");
+		button = new JButton("ì¤‘ë³µ í™•ì¸");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				Join_Chk joinchk = new Join_Chk();
 				if (!textField_Id.getText().equals("")) {
 					brepetiteChk = joinchk.RepetiteID(textField_Id.getText());
 					if (!brepetiteChk)
-						LoginMain.ShowMessage("ÀÌ¹Ì ÀÖ´Â ¾ÆÀÌµğ ÀÔ´Ï´Ù.\n»ç¿ëÀÌ ºÒ°¡´ÉÇÕ´Ï´Ù.");
+						LoginMain.ShowMessage("ì´ë¯¸ ìˆëŠ” ì•„ì´ë”” ì…ë‹ˆë‹¤.\nì‚¬ìš©ì´ ë¶ˆê°€ëŠ¥í•©ë‹ˆë‹¤.");
 					else
-						LoginMain.ShowMessage("»ç¿ëÀÌ °¡´ÉÇÑ ¾ÆÀÌµğ ÀÔ´Ï´Ù.");
+						LoginMain.ShowMessage("ì‚¬ìš©ì´ ê°€ëŠ¥í•œ ì•„ì´ë”” ì…ë‹ˆë‹¤.");
 				} else {
-					LoginMain.ShowMessage("¾ÆÀÌµğ¸¦ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					LoginMain.ShowMessage("ì•„ì´ë””ë¥¼ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 				}
-				// ¾ÆÀÌµğ¸¦ ¹Ş¾Æµé¿© Áßº¹ Ã¼Å©ÇÏ±â
+				// ì•„ì´ë””ë¥¼ ë°›ì•„ë“¤ì—¬ ì¤‘ë³µ ì²´í¬í•˜ê¸°
 			}
 		});
-		JButton button_1 = new JButton("¿Ï·á");
+		JButton button_1 = new JButton("ì™„ë£Œ");
 		button_1.addActionListener(new ActionListener() {
 
 			public void actionPerformed(ActionEvent arg0) {
-				boolean bPasswordLengthChk = false; // ºñ¹Ğ¹øÈ£ ±æÀÌ Ã¼Å©
-				boolean bPasswordMatchChk = false; // ºñ¹Ğ ¹øÈ£ ÀÏÄ¡ È®ÀÎ
+				boolean bPasswordLengthChk = false; // ë¹„ë°€ë²ˆí˜¸ ê¸¸ì´ ì²´í¬
+				boolean bPasswordMatchChk = false; // ë¹„ë°€ ë²ˆí˜¸ ì¼ì¹˜ í™•ì¸
 
 				Join_Chk joinchk = new Join_Chk();
 
-				bPasswordLengthChk = joinchk.PasswordLengthChk(textField_PW.getText()); // ºñ¹Ğ ¹øÈ£ ±æÀÌ Ã¼Å©
+				bPasswordLengthChk = joinchk.PasswordLengthChk(textField_PW.getText()); // ë¹„ë°€ ë²ˆí˜¸ ê¸¸ì´ ì²´í¬
 				bPasswordMatchChk = joinchk.PasswordMatchChk(textField_PW.getText(), textField_PwChk.getText());
 				if (textField_Name.getText().equals("") || textField_Birth.getText().equals("")
 						|| textField_Phone.getText().equals("")) {
-					// ÇÑÄ­ÀÌ¶óµµ ºó°ªÀÌ ÀÖÀ¸¸é,
-					LoginMain.ShowMessage("ºó°ª ¾øÀÌ ¸ğµÎ ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					// í•œì¹¸ì´ë¼ë„ ë¹ˆê°’ì´ ìˆìœ¼ë©´,
+					LoginMain.ShowMessage("ë¹ˆê°’ ì—†ì´ ëª¨ë‘ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					return;
 				}
 				if (!bPasswordLengthChk) {
-					LoginMain.ShowMessage("ºñ¹Ğ ¹øÈ£´Â ¹®ÀÚ, ¼ıÀÚ·Î 8ÀÚ ÀÌ»ó·Î ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					LoginMain.ShowMessage("ë¹„ë°€ ë²ˆí˜¸ëŠ” ë¬¸ì, ìˆ«ìë¡œ 8ì ì´ìƒë¡œ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					return;
 				}
 				if (!bPasswordMatchChk) {
-					LoginMain.ShowMessage("ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏÁö ¾Ê½À´Ï´Ù. ºñ¹Ğ¹øÈ£¸¦ ´Ù½Ã È®ÀÎÇØÁÖ¼¼¿ä.");
+					LoginMain.ShowMessage("ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë¹„ë°€ë²ˆí˜¸ë¥¼ ë‹¤ì‹œ í™•ì¸í•´ì£¼ì„¸ìš”.");
 					return;
 				}
 				if (!brepetiteChk) {
-					LoginMain.ShowMessage("¾ÆÀÌµğ Áßº¹ Ã¼Å©ÇØÁÖ¼¼¿ä.");
+					LoginMain.ShowMessage("ì•„ì´ë”” ì¤‘ë³µ ì²´í¬í•´ì£¼ì„¸ìš”.");
 					return;
 				}
-				LoginMain.ShowMessage("È¸¿ø °¡ÀÔ µÇ¾ú½À´Ï´Ù. ·Î±×ÀÎ ÇØÁÖ¼¼¿ä");
+				LoginMain.ShowMessage("íšŒì› ê°€ì… ë˜ì—ˆìŠµë‹ˆë‹¤. ë¡œê·¸ì¸ í•´ì£¼ì„¸ìš”");
 				Member.MemeverVec.addElement(new Member(LoginMain.SetCodeNumring(), textField_Id.getText(), textField_PW.getText(),
 						textField_Name.getText(), textField_Birth.getText(), textField_Phone.getText()));
 				FileIO.SaveToFile("Member.txt");
@@ -176,7 +176,7 @@ public class Join extends JFrame {
 		button_1.setBounds(277, 181, 145, 21);
 		contentPane.add(button_1);
 
-		JLabel label = new JLabel("ÇÚµåÆù ¹øÈ£");
+		JLabel label = new JLabel("í•¸ë“œí° ë²ˆí˜¸");
 		label.setHorizontalAlignment(SwingConstants.RIGHT);
 		label.setBounds(19, 184, 79, 15);
 		contentPane.add(label);

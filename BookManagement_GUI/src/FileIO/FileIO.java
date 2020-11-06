@@ -15,11 +15,11 @@ import Login.Member;
 public class FileIO {
 	static String StringForSave = "";
 
-	public FileIO() { // »ı¼ºÀÚ
+	public FileIO() { // ìƒì„±ì
 
 	}
 
-	public static void SetFileInputList(String sfilename) { // ÆÄÀÏ ÀÌ¸§À» ¹Ş¾Æ ±× ÇØ´çÇÏ´Â ¸®½ºÆ®
+	public static void SetFileInputList(String sfilename) { // íŒŒì¼ ì´ë¦„ì„ ë°›ì•„ ê·¸ í•´ë‹¹í•˜ëŠ” ë¦¬ìŠ¤íŠ¸
 		BufferedReader read = null;
 		String s = null;
 		Book book = null;
@@ -29,11 +29,11 @@ public class FileIO {
 			try {
 				while ((s = read.readLine()) != null) {
 					StringTokenizer row = new StringTokenizer(s, ",");
-					while (row.hasMoreTokens()) // ¸®ÅÏÇÒ ´ÙÀ½ ÅäÅ«ÀÌ ÀÖ´ÂÁö ¿©ºÎ È®ÀÎ
+					while (row.hasMoreTokens()) // ë¦¬í„´í•  ë‹¤ìŒ í† í°ì´ ìˆëŠ”ì§€ ì—¬ë¶€ í™•ì¸
 					{
 						Object tempobj[] = new Object[6];
-						for (int i = 0; i < tempobj.length; i++) { // Ã¥°ú ¸â¹ö ¸ğµÎ ¿­ÀÌ 6°³
-							tempobj[i] = row.nextToken(); // ¹è¿­¿¡ °¢ °ªÀ» ´ã±â
+						for (int i = 0; i < tempobj.length; i++) { // ì±…ê³¼ ë©¤ë²„ ëª¨ë‘ ì—´ì´ 6ê°œ
+							tempobj[i] = row.nextToken(); // ë°°ì—´ì— ê° ê°’ì„ ë‹´ê¸°
 						}
 						if (sfilename.equals("Book.txt")) {
 							book = new Book(tempobj[0].toString(), tempobj[1].toString(), tempobj[2].toString(),
@@ -96,7 +96,7 @@ public class FileIO {
 		try {
 			writer = new BufferedWriter(new FileWriter(sfilename));
 			writer.write(StringForSave);
-			StringForSave = ""; // ÃÊ±âÈ­
+			StringForSave = ""; // ì´ˆê¸°í™”
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -110,7 +110,7 @@ public class FileIO {
 		}
 	}
 
-	public static void makeString(Object row[]) { // ±¸ºĞÀÚ »ı¼º
+	public static void makeString(Object row[]) { // êµ¬ë¶„ì ìƒì„±
 		for (int i = 0; i < 6 - 1; i++)
 			StringForSave = StringForSave + row[i] + ",";
 		StringForSave = StringForSave + row[6 - 1] + "\n";

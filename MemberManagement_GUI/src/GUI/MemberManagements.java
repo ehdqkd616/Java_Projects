@@ -36,25 +36,25 @@ public class MemberManagements extends MyFrame{
 		JMenuBar menuBar = new JMenuBar();
 		frame.setJMenuBar(menuBar);
 		
-		JMenu menu1 = new JMenu("ÆÄÀÏ");
+		JMenu menu1 = new JMenu("íŒŒì¼");
 		menuBar.add(menu1);
 		
-		JMenuItem menu5Item = new JMenuItem("»õ·ÎÇÏ±â");
+		JMenuItem menu5Item = new JMenuItem("ìƒˆë¡œí•˜ê¸°");
 		menu1.add(menu5Item);
 		
-		JMenuItem menu3Item = new JMenuItem("ºÒ·¯¿À±â");
+		JMenuItem menu3Item = new JMenuItem("ë¶ˆëŸ¬ì˜¤ê¸°");
 		menu1.add(menu3Item);
 		
-		JMenuItem menu4Item = new JMenuItem("ÀúÀåÇÏ±â");
+		JMenuItem menu4Item = new JMenuItem("ì €ì¥í•˜ê¸°");
 		menu1.add(menu4Item);
 		
-		JMenuItem menu1Item = new JMenuItem("Á¾·á");
+		JMenuItem menu1Item = new JMenuItem("ì¢…ë£Œ");
 		menu1.add(menu1Item);
 		
-		JMenu menu2 = new JMenu("µµ¿ò¸»");
+		JMenu menu2 = new JMenu("ë„ì›€ë§");
 		menuBar.add(menu2);
 		
-		JMenuItem menu2Item = new JMenuItem("¹öÁ¯Á¤º¸");
+		JMenuItem menu2Item = new JMenuItem("ë²„ì ¼ì •ë³´");
 		menu2.add(menu2Item);
 
 		menu1Item.addActionListener(new ActionListener() {
@@ -69,7 +69,7 @@ public class MemberManagements extends MyFrame{
 			}
 		});
 		
-		ff = new FileNameExtensionFilter("ÅØ½ºÆ®ÆÄÀÏ(.txt)", "txt");
+		ff = new FileNameExtensionFilter("í…ìŠ¤íŠ¸íŒŒì¼(.txt)", "txt");
 		
 		menu3Item.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
@@ -114,13 +114,13 @@ public class MemberManagements extends MyFrame{
 	}
 	
 	public void MmStart(){
-		frame.setTitle("È¸¿ø°ü¸® ÇÁ·Î±×·¥");
+		frame.setTitle("íšŒì›ê´€ë¦¬ í”„ë¡œê·¸ë¨");
 		frame.setSize(500, 360);
 		frame.setLocation(500, 300);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 		frame.setVisible(true);
 		
-		JButton bt1 = new JButton("È¸¿øµî·Ï");
+		JButton bt1 = new JButton("íšŒì›ë“±ë¡");
 		bt1.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -130,7 +130,7 @@ public class MemberManagements extends MyFrame{
 		bt1.setBounds(22, 232, 133, 49);
 		frame.getContentPane().add(bt1);
 		
-		JButton bt2 = new JButton("È¸¿ø°ü¸®");
+		JButton bt2 = new JButton("íšŒì›ê´€ë¦¬");
 		bt2.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();
@@ -140,7 +140,7 @@ public class MemberManagements extends MyFrame{
 		bt2.setBounds(174, 232, 133, 49);
 		frame.getContentPane().add(bt2);
 		
-		JButton bt3 = new JButton("È¸¿ø°Ë»ö");
+		JButton bt3 = new JButton("íšŒì›ê²€ìƒ‰");
 		bt3.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
 				frame.dispose();

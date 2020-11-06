@@ -24,10 +24,10 @@ import java.util.concurrent.Executors;
 public class ServerExample extends Application {
     ExecutorService executorService;
     ServerSocket serverSocket;
-    List<Client> connections = new Vector<Client>(); // ½º·¹µå¿¡ ¾ÈÀüÇÔ
+    List<Client> connections = new Vector<Client>(); // ìŠ¤ë ˆë“œì— ì•ˆì „í•¨
 
     void startServer(){
-        // ¼­¹ö ½ÃÀÛ ÄÚµå (Executor Service »ı¼º, ServerSocket »ı¼º ¹× Æ÷Æ® ¹ÙÀÎµù, ¿¬°á ¼ö¶ô)
+        // ì„œë²„ ì‹œì‘ ì½”ë“œ (Executor Service ìƒì„±, ServerSocket ìƒì„± ë° í¬íŠ¸ ë°”ì¸ë”©, ì—°ê²° ìˆ˜ë½)
         executorService = Executors.newFixedThreadPool(Runtime.getRuntime().availableProcessors());
         try{
             serverSocket = new ServerSocket();
@@ -37,24 +37,24 @@ public class ServerExample extends Application {
             return;
         }
 
-        Runnable runnable = new Runnable() { // ¼ö¶ô ÀÛ¾÷À» »ı¼º
+        Runnable runnable = new Runnable() { // ìˆ˜ë½ ì‘ì—…ì„ ìƒì„±
             @Override
             public void run() {
                 Platform.runLater(()-> {
-                    // UI ¼³Á¤
-                    displayText("[¼­¹ö ½ÃÀÛ]");
+                    // UI ì„¤ì •
+                    displayText("[ì„œë²„ ì‹œì‘]");
                     btnStartStop.setText("stop");
                 });
 
                 while(true){
                     try{
-                        Socket socket = serverSocket.accept(); // ¿¬°á ¼ö¶ô
-                        String message = "[¿¬°á ¼ö¶ô : " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + "]";
+                        Socket socket = serverSocket.accept(); // ì—°ê²° ìˆ˜ë½
+                        String message = "[ì—°ê²° ìˆ˜ë½ : " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + "]";
                         Platform.runLater(()->displayText(message));
 
                         Client client = new Client(socket);
                         connections.add(client);
-                        Platform.runLater(()-> displayText("[¿¬°á °³¼ö : " + connections.size() + " ]"));
+                        Platform.runLater(()-> displayText("[ì—°ê²° ê°œìˆ˜ : " + connections.size() + " ]"));
                     }catch(Exception e){
                         if(!serverSocket.isClosed()) { stopServer();}
                         break;
@@ -62,34 +62,34 @@ public class ServerExample extends Application {
                 }
             }
         };
-        executorService.submit(runnable); // ½º·¹µå Ç®¿¡¼­ Ã³¸®
+        executorService.submit(runnable); // ìŠ¤ë ˆë“œ í’€ì—ì„œ ì²˜ë¦¬
     }
 
     void stopServer(){
-        // ¼­¹ö Á¾·á ÄÚµå
+        // ì„œë²„ ì¢…ë£Œ ì½”ë“œ
         try{
             Iterator<Client> iterator = connections.iterator();
-            while(iterator.hasNext()){ // ¸ğµç socket ´İ±â
+            while(iterator.hasNext()){ // ëª¨ë“  socket ë‹«ê¸°
                 Client client = iterator.next();
                 client.socket.close();
                 iterator.remove();
             }
-            if(serverSocket != null && !serverSocket.isClosed()){ // server socket ´İ±â
+            if(serverSocket != null && !serverSocket.isClosed()){ // server socket ë‹«ê¸°
                 serverSocket.close();
             }
-            if(executorService != null && !executorService.isShutdown()){ // ExecutorService Á¾·á
+            if(executorService != null && !executorService.isShutdown()){ // ExecutorService ì¢…ë£Œ
                 executorService.shutdown();
             }
 
             Platform.runLater(() -> {
-                displayText("[¼­¹ö ¸ØÃã]");
+                displayText("[ì„œë²„ ë©ˆì¶¤]");
                 btnStartStop.setText("start");
             });
         }catch(Exception e){ }
     }
 
     class Client {
-        // µ¥ÀÌÅÍ Åë½Å ÄÚµå
+        // ë°ì´í„° í†µì‹  ì½”ë“œ
         Socket socket;
 
         Client(Socket socket){
@@ -98,8 +98,8 @@ public class ServerExample extends Application {
         }
 
         void receive(){
-            // µ¥ÀÌÅÍ ¹Ş±â ÄÚµå
-            Runnable runnable = new Runnable() { // ¹Ş±â ÀÛ¾÷ »ı¼º
+            // ë°ì´í„° ë°›ê¸° ì½”ë“œ
+            Runnable runnable = new Runnable() { // ë°›ê¸° ì‘ì—… ìƒì„±
                 @Override
                 public void run() {
                     try{
@@ -107,35 +107,35 @@ public class ServerExample extends Application {
                             byte[] byteArr = new byte[100];
                             InputStream inputStream = socket.getInputStream();
 
-                            int readByteCount = inputStream.read(byteArr); // µ¥ÀÌÅÍ ¹Ş±â
+                            int readByteCount = inputStream.read(byteArr); // ë°ì´í„° ë°›ê¸°
 
-                            // Å¬¶óÀÌ¾ğÆ®°¡ Á¤»óÀûÀ¸·Î SocketÀÇ close()¸¦ È£ÃâÇßÀ» °æ¿ì
+                            // í´ë¼ì´ì–¸íŠ¸ê°€ ì •ìƒì ìœ¼ë¡œ Socketì˜ close()ë¥¼ í˜¸ì¶œí–ˆì„ ê²½ìš°
                             if(readByteCount == -1) { throw new IOException();}
 
-                            String message = "[¿äÃ» Ã³¸®: " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + "]";
+                            String message = "[ìš”ì²­ ì²˜ë¦¬: " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + "]";
                             Platform.runLater(()->displayText(message));
 
                             String data = new String(byteArr, 0, readByteCount, "UTF-8");
 
                             for(Client client : connections){
-                                client.send(data); // ¸ğµç Å¬¶óÀÌ¾ğÆ®¿¡°Ô º¸³¿
+                                client.send(data); // ëª¨ë“  í´ë¼ì´ì–¸íŠ¸ì—ê²Œ ë³´ëƒ„
                             }
                         }
                     }catch(Exception e){
                         try{
                             connections.remove(Client.this);
-                            String message = "[Å¬¶óÀÌ¾ğÆ® Åë½Å ¾ÈµÊ: " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + " ]";
+                            String message = "[í´ë¼ì´ì–¸íŠ¸ í†µì‹  ì•ˆë¨: " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + " ]";
                             Platform.runLater(()->displayText(message));
                             socket.close();
                         }catch(IOException e2) {}
                     }
                 }
             };
-            executorService.submit(runnable); // ½º·¹µåÇ®¿¡¼­ Ã³¸®
+            executorService.submit(runnable); // ìŠ¤ë ˆë“œí’€ì—ì„œ ì²˜ë¦¬
         }
         void send(String data){
-            // µ¥ÀÌÅÍ Àü¼Û ÄÚµå
-            Runnable runnable = new Runnable() { // º¸³»±â ÀÛ¾÷ »ı¼º
+            // ë°ì´í„° ì „ì†¡ ì½”ë“œ
+            Runnable runnable = new Runnable() { // ë³´ë‚´ê¸° ì‘ì—… ìƒì„±
                 @Override
                 public void run() {
                     try{
@@ -145,7 +145,7 @@ public class ServerExample extends Application {
                         outputStream.flush();
                     }catch(Exception e){
                         try {
-                            String message = "[Å¬¶óÀÌ¾ğÆ® Åë½Å ¾ÈµÊ: " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + " ]";
+                            String message = "[í´ë¼ì´ì–¸íŠ¸ í†µì‹  ì•ˆë¨: " + socket.getRemoteSocketAddress() + ": " + Thread.currentThread().getName() + " ]";
                             Platform.runLater(() -> displayText(message));
                             connections.remove(Client.this);
                             socket.close();
@@ -153,12 +153,12 @@ public class ServerExample extends Application {
                     }
                 }
             };
-            executorService.submit(runnable); // ½º·¹µåÇ®¿¡¼­ Ã³¸®
+            executorService.submit(runnable); // ìŠ¤ë ˆë“œí’€ì—ì„œ ì²˜ë¦¬
         }
     }
 
     ////////
-    // UI »ı¼º ÄÚµå
+    // UI ìƒì„± ì½”ë“œ
     TextArea txtDisplay;
     Button btnStartStop;
 

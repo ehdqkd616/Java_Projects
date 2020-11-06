@@ -10,19 +10,19 @@ import BookManagement.BookMain;
 
 public class LoginMain {
 
-	public enum Status { // Tab »óÈ² ±¸ºĞÇÏ±â À§ÇØ Enum ¼±¾ğ
+	public enum Status { // Tab ìƒí™© êµ¬ë¶„í•˜ê¸° ìœ„í•´ Enum ì„ ì–¸
 		BOOK, CUSTOMER, EMPLOYEE, PUBLISHER, DELIVERY, ORDER, SUPPLY, DEPARTMENT, POSITION, BOOKCLASS
 	};
 
-	public static Status NowStatus = Status.BOOK; // Çö tab »óÈ² ÀúÀå //±âº»°ª book
+	public static Status NowStatus = Status.BOOK; // í˜„ tab ìƒí™© ì €ì¥ //ê¸°ë³¸ê°’ book
 
-	public static FindId findId = new FindId(); // ¾ÆÀÌµğ Ã£±â
-	public static FindPw findpw = new FindPw(); // ºñ¹Ğ ¹øÈ£ Ã£±â
-	public static Join join = new Join(); // È¸¿ø °¡ÀÔ
-	public static Login login = new Login(); // ·Î±×ÀÎ È­¸é (°¡Àå ±âº» main)
+	public static FindId findId = new FindId(); // ì•„ì´ë”” ì°¾ê¸°
+	public static FindPw findpw = new FindPw(); // ë¹„ë°€ ë²ˆí˜¸ ì°¾ê¸°
+	public static Join join = new Join(); // íšŒì› ê°€ì…
+	public static Login login = new Login(); // ë¡œê·¸ì¸ í™”ë©´ (ê°€ì¥ ê¸°ë³¸ main)
 
-	public static BookMain bookmain = new BookMain(); // Ã¥ °ü·Ã ¸Å´ÏÀú
-	public static boolean bLogInStatus = false; // Çö »óÈ²ÀÌ·Î±×ÀÎ µÈ »óÅÂÀÎÁö Ã¼Å©ÇØÁÖ´Â º¯¼ö
+	public static BookMain bookmain = new BookMain(); // ì±… ê´€ë ¨ ë§¤ë‹ˆì €
+	public static boolean bLogInStatus = false; // í˜„ ìƒí™©ì´ë¡œê·¸ì¸ ëœ ìƒíƒœì¸ì§€ ì²´í¬í•´ì£¼ëŠ” ë³€ìˆ˜
 
 	public static void main(String[] args) {
 		bookmain.Book_Main();
@@ -33,7 +33,7 @@ public class LoginMain {
 		JOptionPane.showMessageDialog(null, str);
 	}
 
-	public static String SetCodeNumring() { // ÄÚµå ³Ñ¹ö ·£´ıÀ¸·Î ¹Ş¾ÆÁÖ´Â ¸Ş¼Òµå || Ã¥À» °æ¿ì, ¾Õ¿¡ B¸¦ / »ç¶÷ÀÏ °æ¿ì, ¾Õ¿¡ M
+	public static String SetCodeNumring() { // ì½”ë“œ ë„˜ë²„ ëœë¤ìœ¼ë¡œ ë°›ì•„ì£¼ëŠ” ë©”ì†Œë“œ || ì±…ì„ ê²½ìš°, ì•ì— Bë¥¼ / ì‚¬ëŒì¼ ê²½ìš°, ì•ì— M
 		String str = "";
 		if (LoginMain.NowStatus == Status.BOOK)
 			str = "B";
@@ -41,8 +41,8 @@ public class LoginMain {
 			str = "M";
 		str += UUID.randomUUID().toString().replaceFirst("-", "").substring(0, 6);
 		return str;
-		// ÃÑ ±æÀÌ°¡ 32ÀÚ¸®°¡ ³ª¿À±â ¶§¹®¿¡ ±æÀÌ ÁöÁ¤
-		// ³»°¡ µğÆúÆ®·Î ÀâÀº °ª¿¡¼­ Ãß°¡·Î 6ÀÚ¸®°¡ ·£´ıÀ¸·Î ¹Ş¾ÆÁ® ÀÛ¼ºµÊ
+		// ì´ ê¸¸ì´ê°€ 32ìë¦¬ê°€ ë‚˜ì˜¤ê¸° ë•Œë¬¸ì— ê¸¸ì´ ì§€ì •
+		// ë‚´ê°€ ë””í´íŠ¸ë¡œ ì¡ì€ ê°’ì—ì„œ ì¶”ê°€ë¡œ 6ìë¦¬ê°€ ëœë¤ìœ¼ë¡œ ë°›ì•„ì ¸ ì‘ì„±ë¨
 	}
 
 	public static Vector<?> ReturnVec() {

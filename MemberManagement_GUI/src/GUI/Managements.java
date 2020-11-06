@@ -13,22 +13,22 @@ import javax.swing.JTextArea;
 
 public class Managements extends MemberManagements  implements ActionListener, ItemListener {
 	MyFrame frame2 = new MyFrame();
-	JButton add = new JButton("È¸¿ø Ãß°¡");
-	JButton edit = new JButton("È¸¿ø ¼öÁ¤");
-	JButton delete = new JButton("È¸¿ø »èÁ¦");
-	JButton cancel = new JButton("Ãë¼Ò");
+	JButton add = new JButton("íšŒì› ì¶”ê°€");
+	JButton edit = new JButton("íšŒì› ìˆ˜ì •");
+	JButton delete = new JButton("íšŒì› ì‚­ì œ");
+	JButton cancel = new JButton("ì·¨ì†Œ");
 	JComboBox cb = new JComboBox();
-	private JLabel select = new JLabel("È¸¿ø ¼±ÅÃ");
+	private JLabel select = new JLabel("íšŒì› ì„ íƒ");
 	private final JTextArea memInfo = new JTextArea();
 	
 	public Managements(){
-		frame2.setTitle("È¸¿ø°ü¸®");
+		frame2.setTitle("íšŒì›ê´€ë¦¬");
 		frame2.setSize(331, 285);
 		frame2.setLocation(550, 350);
 		frame2.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 	
 		cb.setBounds(12, 39, 183, 21);
-		cb.addItem("È¸¿øÀ» ¼±ÅÃÇÏ¼¼¿ä");
+		cb.addItem("íšŒì›ì„ ì„ íƒí•˜ì„¸ìš”");
 		for(int i=0; i<list.size(); i++){
 			cb.addItem(list.get(i).getCode() + ". " + list.get(i).getName());
 		}
@@ -66,9 +66,9 @@ public class Managements extends MemberManagements  implements ActionListener, I
 	public void itemStateChanged(ItemEvent ie){
 		if(cb.getSelectedIndex()!=0){
 			int select = cb.getSelectedIndex()-1;
-			memInfo.setText("È¸¿ø ÄÚµå : "+list.get(select).getCode() + "\nÈ¸¿ø ÀÌ¸§ : "+ list.get(select).getName() 
-				+ "\nÈ¸¿ø ³ªÀÌ : " + list.get(select).getAge()  + "\nÈ¸¿ø ¼ºº° : " + list.get(select).getSex()  + "\nÈ¸¿ø ÀüÈ­¹øÈ£ : " 
-				+ list.get(select).getPhone()  + "\nÁ÷Àå : " +list.get(select).getJob()  +	"\nÈ¸¿ø ÁÖ¼Ò : " +list.get(select).getAddr());
+			memInfo.setText("íšŒì› ì½”ë“œ : "+list.get(select).getCode() + "\níšŒì› ì´ë¦„ : "+ list.get(select).getName() 
+				+ "\níšŒì› ë‚˜ì´ : " + list.get(select).getAge()  + "\níšŒì› ì„±ë³„ : " + list.get(select).getSex()  + "\níšŒì› ì „í™”ë²ˆí˜¸ : " 
+				+ list.get(select).getPhone()  + "\nì§ì¥ : " +list.get(select).getJob()  +	"\níšŒì› ì£¼ì†Œ : " +list.get(select).getAddr());
 		}else{
 			memInfo.setText(null);
 		}

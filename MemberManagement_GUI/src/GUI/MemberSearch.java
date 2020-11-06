@@ -18,20 +18,20 @@ import javax.swing.JTextPane;
 
 public class MemberSearch extends MemberManagements implements ActionListener {
 	MyFrame frame5 = new MyFrame();
-	JButton sCode = new JButton("È¸¿ø ÄÚµå");
-	JButton sName = new JButton("È¸¿ø ÀÌ¸§");
-	JButton sPhone = new JButton("ÀüÈ­ ¹øÈ£");
-	JButton sAll = new JButton("ÀüÃ¼ È¸¿ø");
-	JButton sCancel = new JButton("Ãë¼Ò");
+	JButton sCode = new JButton("íšŒì› ì½”ë“œ");
+	JButton sName = new JButton("íšŒì› ì´ë¦„");
+	JButton sPhone = new JButton("ì „í™” ë²ˆí˜¸");
+	JButton sAll = new JButton("ì „ì²´ íšŒì›");
+	JButton sCancel = new JButton("ì·¨ì†Œ");
 	JTextArea textArea = new JTextArea();
 	public MemberSearch(){
-		frame5.setTitle("È¸¿ø°Ë»ö");
+		frame5.setTitle("íšŒì›ê²€ìƒ‰");
 		frame5.setSize(477, 293);
 		frame5.setLocation(550, 350);
 		frame5.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 	
-		JLabel lblNewLabel = new JLabel("°Ë»ö");
-		lblNewLabel.setFont(new Font("±¼¸²", Font.PLAIN, 16));
+		JLabel lblNewLabel = new JLabel("ê²€ìƒ‰");
+		lblNewLabel.setFont(new Font("êµ´ë¦¼", Font.PLAIN, 16));
 		lblNewLabel.setBounds(354, 3, 43, 32);
 		frame5.getContentPane().add(lblNewLabel);
 		
@@ -72,30 +72,30 @@ public class MemberSearch extends MemberManagements implements ActionListener {
 		String[] nameCollection = null;
 		String nameCode =null;
 		if(e.getSource() == sCode){
-			String code = JOptionPane.showInputDialog("°Ë»öÇÒ ÄÚµåÀ» ÀÔ·ÂÇÏ¼¼¿ä");
+			String code = JOptionPane.showInputDialog("ê²€ìƒ‰í•  ì½”ë“œì„ ì…ë ¥í•˜ì„¸ìš”");
 			if(code == null){
 				return;
 			}
 			if(list.size() != 0){
 				for(int i=0; i<list.size(); i++){
 					if(code.equals(list.get(i).getCode())){
-						textArea.setText("È¸¿ø ÄÚµå : "+list.get(i).getCode() + "\n\nÈ¸¿ø ÀÌ¸§ : "+list.get(i).getName() 
-								+ "\n\nÈ¸¿ø ³ªÀÌ : " + list.get(i).getAge() + "\n\nÈ¸¿ø ¼ºº° : " + list.get(i).getSex()
-								+ "\n\nÈ¸¿ø ÀüÈ­¹øÈ£ : " + list.get(i).getPhone() + "\n\nÁ÷Àå¸í : " +list.get(i).getJob() +
-								"\n\nÈ¸¿ø ÁÖ¼Ò : " + list.get(i).getAddr());
+						textArea.setText("íšŒì› ì½”ë“œ : "+list.get(i).getCode() + "\n\níšŒì› ì´ë¦„ : "+list.get(i).getName() 
+								+ "\n\níšŒì› ë‚˜ì´ : " + list.get(i).getAge() + "\n\níšŒì› ì„±ë³„ : " + list.get(i).getSex()
+								+ "\n\níšŒì› ì „í™”ë²ˆí˜¸ : " + list.get(i).getPhone() + "\n\nì§ì¥ëª… : " +list.get(i).getJob() +
+								"\n\níšŒì› ì£¼ì†Œ : " + list.get(i).getAddr());
 						break;
 					}
 					dataCnt++;
 				}
 				if(dataCnt == list.size()+1){
-					JOptionPane.showMessageDialog(this, "ÀÏÄ¡ÇÏ´Â È¸¿øÀÌ ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "ì¼ì¹˜í•˜ëŠ” íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 				}	
 			}else{
-				JOptionPane.showMessageDialog(this, "µî·ÏµÈ È¸¿øÀÌ ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "ë“±ë¡ëœ íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}else if(e.getSource() == sName){
 			int cnt = 0;
-			String name = JOptionPane.showInputDialog("°Ë»öÇÒ ÀÌ¸§À» ÀÔ·ÂÇÏ¼¼¿ä");
+			String name = JOptionPane.showInputDialog("ê²€ìƒ‰í•  ì´ë¦„ì„ ì…ë ¥í•˜ì„¸ìš”");
 			if(name == null){
 				return;
 			}
@@ -117,7 +117,7 @@ public class MemberSearch extends MemberManagements implements ActionListener {
 						}
 					}
 					nameCode = (String) JOptionPane.showInputDialog(this,
-							"°°Àº ÀÌ¸§ÀÌ Á¸ÀçÇÕ´Ï´Ù.\n", "¸Ş½ÃÁö",
+							"ê°™ì€ ì´ë¦„ì´ ì¡´ì¬í•©ë‹ˆë‹¤.\n", "ë©”ì‹œì§€",
 							JOptionPane.INFORMATION_MESSAGE, null,
 							nameCollection, nameCollection[0]);
 					if (nameCode == null) {
@@ -126,60 +126,60 @@ public class MemberSearch extends MemberManagements implements ActionListener {
 					nameCode = nameCode.substring(0, 4);
 					for (int i = 0; i < list.size(); i++) {
 						if ((nameCode.equals(list.get(i).getCode()))) {
-							textArea.setText("È¸¿ø ÄÚµå : " + list.get(i).getCode()
-									+ "\n\nÈ¸¿ø ÀÌ¸§ : " + list.get(i).getName()
-									+ "\n\nÈ¸¿ø ³ªÀÌ : " + list.get(i).getAge()
-									+ "\n\nÈ¸¿ø ¼ºº° : " + list.get(i).getSex()
-									+ "\n\nÈ¸¿ø ÀüÈ­¹øÈ£ : " + list.get(i).getPhone()
-									+ "\n\nÁ÷Àå¸í : " + list.get(i).getJob()
-									+ "\n\nÈ¸¿ø ÁÖ¼Ò : " + list.get(i).getAddr());
+							textArea.setText("íšŒì› ì½”ë“œ : " + list.get(i).getCode()
+									+ "\n\níšŒì› ì´ë¦„ : " + list.get(i).getName()
+									+ "\n\níšŒì› ë‚˜ì´ : " + list.get(i).getAge()
+									+ "\n\níšŒì› ì„±ë³„ : " + list.get(i).getSex()
+									+ "\n\níšŒì› ì „í™”ë²ˆí˜¸ : " + list.get(i).getPhone()
+									+ "\n\nì§ì¥ëª… : " + list.get(i).getJob()
+									+ "\n\níšŒì› ì£¼ì†Œ : " + list.get(i).getAddr());
 						}
 					}
 				} else {
 					for (int i = 0; i < list.size(); i++) {
 						if (name.equals(list.get(i).getName())) {
-							textArea.setText("È¸¿ø ÄÚµå : " + list.get(i).getCode()
-									+ "\n\nÈ¸¿ø ÀÌ¸§ : " + list.get(i).getName()
-									+ "\n\nÈ¸¿ø ³ªÀÌ : " + list.get(i).getAge()
-									+ "\n\nÈ¸¿ø ¼ºº° : " + list.get(i).getSex()
-									+ "\n\nÈ¸¿ø ÀüÈ­¹øÈ£ : " + list.get(i).getPhone()
-									+ "\n\nÁ÷Àå¸í : " + list.get(i).getJob()
-									+ "\n\nÈ¸¿ø ÁÖ¼Ò : " + list.get(i).getAddr());
+							textArea.setText("íšŒì› ì½”ë“œ : " + list.get(i).getCode()
+									+ "\n\níšŒì› ì´ë¦„ : " + list.get(i).getName()
+									+ "\n\níšŒì› ë‚˜ì´ : " + list.get(i).getAge()
+									+ "\n\níšŒì› ì„±ë³„ : " + list.get(i).getSex()
+									+ "\n\níšŒì› ì „í™”ë²ˆí˜¸ : " + list.get(i).getPhone()
+									+ "\n\nì§ì¥ëª… : " + list.get(i).getJob()
+									+ "\n\níšŒì› ì£¼ì†Œ : " + list.get(i).getAddr());
 							break;
 						}
 						dataCnt++;
 					}
 					if(dataCnt == list.size()+1){
-						JOptionPane.showMessageDialog(this, "ÀÏÄ¡ÇÏ´Â È¸¿øÀÌ ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(this, "ì¼ì¹˜í•˜ëŠ” íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 			}else{
-				JOptionPane.showMessageDialog(this, "µî·ÏµÈ È¸¿øÀÌ ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "ë“±ë¡ëœ íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}else if(e.getSource() == sPhone){
-			String phone = JOptionPane.showInputDialog("°Ë»öÇÒ ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¼¼¿ä");
+			String phone = JOptionPane.showInputDialog("ê²€ìƒ‰í•  ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì„¸ìš”");
 			if(phone == null){
 				return;
 			}
 			if (list.size() != 0) {
 				for (int i = 0; i < list.size(); i++) {
 					if (phone.equals(list.get(i).getPhone())) {
-						textArea.setText("È¸¿ø ÄÚµå : " + list.get(i).getCode()
-								+ "\n\nÈ¸¿ø ÀÌ¸§ : " + list.get(i).getName()
-								+ "\n\nÈ¸¿ø ³ªÀÌ : " + list.get(i).getAge()
-								+ "\n\nÈ¸¿ø ¼ºº° : " + list.get(i).getSex()
-								+ "\n\nÈ¸¿ø ÀüÈ­¹øÈ£ : " + list.get(i).getPhone()
-								+ "\n\nÁ÷Àå¸í : " + list.get(i).getJob()
-								+ "\n\nÈ¸¿ø ÁÖ¼Ò : " + list.get(i).getAddr());
+						textArea.setText("íšŒì› ì½”ë“œ : " + list.get(i).getCode()
+								+ "\n\níšŒì› ì´ë¦„ : " + list.get(i).getName()
+								+ "\n\níšŒì› ë‚˜ì´ : " + list.get(i).getAge()
+								+ "\n\níšŒì› ì„±ë³„ : " + list.get(i).getSex()
+								+ "\n\níšŒì› ì „í™”ë²ˆí˜¸ : " + list.get(i).getPhone()
+								+ "\n\nì§ì¥ëª… : " + list.get(i).getJob()
+								+ "\n\níšŒì› ì£¼ì†Œ : " + list.get(i).getAddr());
 						break;
 					}
 					dataCnt++;
 				}
 				if(dataCnt == list.size()+1){
-					JOptionPane.showMessageDialog(this, "ÀÏÄ¡ÇÏ´Â È¸¿øÀÌ ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "ì¼ì¹˜í•˜ëŠ” íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 				}
 			} else{
-				JOptionPane.showMessageDialog(this, "µî·ÏµÈ È¸¿øÀÌ ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "ë“±ë¡ëœ íšŒì›ì´ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}
 		}else if(e.getSource() == sAll){
 			AllSearch al = new AllSearch();

@@ -33,7 +33,7 @@ import Login.Member;
 public class BookMain extends JFrame {
 
 	private static JPanel contentPane;
-	// ¸®½ºÆ® Å¬¸®¾î / »ğÀÔ / ¼öÁ¤ / »èÁ¦ ÀÎÅÍÆäÀÌ½º
+	// ë¦¬ìŠ¤íŠ¸ í´ë¦¬ì–´ / ì‚½ì… / ìˆ˜ì • / ì‚­ì œ ì¸í„°í˜ì´ìŠ¤
 	private static Handling handling = null;
 
 	private static JLabel lblNewLabel_Title = new JLabel("");
@@ -41,35 +41,35 @@ public class BookMain extends JFrame {
 
 	private JTextField textField_Search;
 
-	private JButton btnLogIn = new JButton("·Î±×ÀÎ"); // ¿À¸¥ÂÊ »ó´Ü ¹öÆ° ±¸¿ª // ·Î±×ÀÎ Ã¼Å©
+	private JButton btnLogIn = new JButton("ë¡œê·¸ì¸"); // ì˜¤ë¥¸ìª½ ìƒë‹¨ ë²„íŠ¼ êµ¬ì—­ // ë¡œê·¸ì¸ ì²´í¬
 
 	public ArrayList<String> array_combox = new ArrayList<String>();
 
 	private JTable table = new JTable(model);
 	private JPanel panel_2 = new JPanel();
-	private JLabel lbListSize = null; // ÃÑ ¸®½ºÆ® °³¼ö ³ëÃâ
+	private JLabel lbListSize = null; // ì´ ë¦¬ìŠ¤íŠ¸ ê°œìˆ˜ ë…¸ì¶œ
 
-	// ¿ŞÂÊ ¸®½ºÆ® ¸ñ·Ï
+	// ì™¼ìª½ ë¦¬ìŠ¤íŠ¸ ëª©ë¡
 	private static JLabel[] Label = new JLabel[6];
 	private static JTextField[] textField = new JTextField[6];
 
-	private static Vector<String> comlumn = new Vector<String>(); // Çà
+	private static Vector<String> comlumn = new Vector<String>(); // í–‰
 	public static DefaultTableModel model = new DefaultTableModel(comlumn, 0) {
-		public boolean isCellEditable(int row, int column) {// Å×ÀÌºíÁ÷Á¢¼öÁ¤X
+		public boolean isCellEditable(int row, int column) {// í…Œì´ë¸”ì§ì ‘ìˆ˜ì •X
 			return false;
 			// TODO Auto-generated method stub
 		}
 	};
 
-	public BookMain() { // »ı¼ºÀÚ
+	public BookMain() { // ìƒì„±ì
 
 	}
 
-	public void Book_Main() {// µğÀÚÀÎ
-		// Ã³À½ 1È¸ ½ÇÇà
+	public void Book_Main() {// ë””ìì¸
+		// ì²˜ìŒ 1íšŒ ì‹¤í–‰
 		FileIO.SetFileInputList("Book.txt");
 		FileIO.SetFileInputList("Member.txt");
-		// ÃÊ±â¿¡ »ı¼ºÀÚ¿Í µ¿½Ã¿¡ ÆÄÀÏ ¸¸µé±â
+		// ì´ˆê¸°ì— ìƒì„±ìì™€ ë™ì‹œì— íŒŒì¼ ë§Œë“¤ê¸°
 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 1052, 677);
@@ -77,13 +77,13 @@ public class BookMain extends JFrame {
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		// ¿ŞÂÊ ¸®½ºÆ® Æ²
+		// ì™¼ìª½ ë¦¬ìŠ¤íŠ¸ í‹€
 		CreateLeftList();
-		// ------------------- Å×ÀÌºí ¸®½ºÆ® -------------------
+		// ------------------- í…Œì´ë¸” ë¦¬ìŠ¤íŠ¸ -------------------
 		SetChangeable();
 		// SetChangeable();
-		// ------------------ Áß¾Ó »ó´Ü -------------------
-		// ÇöÀç ¼±ÅÃµÇ¾î ÀÖ´Â ¸®½ºÆ® Á¾·ù ÀÌ¸§ ³ëÃâ
+		// ------------------ ì¤‘ì•™ ìƒë‹¨ -------------------
+		// í˜„ì¬ ì„ íƒë˜ì–´ ìˆëŠ” ë¦¬ìŠ¤íŠ¸ ì¢…ë¥˜ ì´ë¦„ ë…¸ì¶œ
 		JPanel panel = new JPanel();
 		panel.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 2)));
 		panel.setBounds(12, 10, 855, 36);
@@ -93,9 +93,9 @@ public class BookMain extends JFrame {
 		lblNewLabel_Title.setHorizontalAlignment(SwingConstants.LEFT);
 		lblNewLabel_Title.setVerticalAlignment(SwingConstants.TOP);
 		panel.add(lblNewLabel_Title);
-		// -------------- ¿À¸¥ÂÊ ¹öÆ° ¸®½ºÆ® -------------- //
+		// -------------- ì˜¤ë¥¸ìª½ ë²„íŠ¼ ë¦¬ìŠ¤íŠ¸ -------------- //
 		JPanel panel_3 = new JPanel();
-		panel_3.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 2))); // Å×µÎ¸® °ËÁ¤»öÀ¸·Î »çÀÌÁî 2¸¸Å­
+		panel_3.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 2))); // í…Œë‘ë¦¬ ê²€ì •ìƒ‰ìœ¼ë¡œ ì‚¬ì´ì¦ˆ 2ë§Œí¼
 
 		panel_3.setBounds(879, 54, 145, 575);
 		contentPane.add(panel_3);
@@ -112,7 +112,7 @@ public class BookMain extends JFrame {
 		btnNewButton_Right.add(new JButton("Position"));
 		btnNewButton_Right.add(new JButton("Book_Class"));
 
-		ButtonHandler handler = new ButtonHandler(); // ¹öÆ° ÀÌº¥Æ® Ã³¸® ÈÄ ÀÛ¾÷ÇÒ ¼ö ÀÖµµ·Ï
+		ButtonHandler handler = new ButtonHandler(); // ë²„íŠ¼ ì´ë²¤íŠ¸ ì²˜ë¦¬ í›„ ì‘ì—…í•  ìˆ˜ ìˆë„ë¡
 
 		for (int i = 0; i < btnNewButton_Right.size(); i++) { //
 			btnNewButton_Right.get(i).setPreferredSize(new Dimension(125, 51));
@@ -121,7 +121,7 @@ public class BookMain extends JFrame {
 			panel_3.add(btnNewButton_Right.get(i));
 		}
 
-		// -------------- ¿ŞÂÊ ÇÏ´Ü ¹öÆ° -------------- //
+		// -------------- ì™¼ìª½ í•˜ë‹¨ ë²„íŠ¼ -------------- //
 		JPanel panel_5 = new JPanel();
 		panel_5.setBounds(12, 504, 140, 125);
 		panel_5.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 2)));
@@ -137,7 +137,7 @@ public class BookMain extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				handling.Clear(); // ºó°ªÀ¸·Î ÃÊ±âÈ­
+				handling.Clear(); // ë¹ˆê°’ìœ¼ë¡œ ì´ˆê¸°í™”
 				for (int i = 0; i < textField.length; i++)
 					textField[i].setText("");
 			}
@@ -177,7 +177,7 @@ public class BookMain extends JFrame {
 		panel_5.add(btnNewButton_Update);
 		panel_5.add(btnNewButton_Delete);
 
-		JPanel panel_1 = new JPanel(); // ¿À¸¥ÂÊ »ó´Ü ¹öÆ° ±¸¿ª
+		JPanel panel_1 = new JPanel(); // ì˜¤ë¥¸ìª½ ìƒë‹¨ ë²„íŠ¼ êµ¬ì—­
 		panel_1.setBounds(879, 10, 145, 36);
 		panel_1.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 2)));
 
@@ -195,34 +195,34 @@ public class BookMain extends JFrame {
 		panel_1.add(btnLogIn);
 	}
 
-	// ¿À¸¥ÂÊ »ó´Ü ¹öÆ° Ã³¸® °ª ¼¼ÆÃ
+	// ì˜¤ë¥¸ìª½ ìƒë‹¨ ë²„íŠ¼ ì²˜ë¦¬ ê°’ ì„¸íŒ…
 
-	public void SetLoginLabel() {// ·Î±×ÀÎ ¹öÆ° ´©¸£¸é ½ÇÇàÇØ¾ßÇÏ´Â »óÈ² Setting
+	public void SetLoginLabel() {// ë¡œê·¸ì¸ ë²„íŠ¼ ëˆ„ë¥´ë©´ ì‹¤í–‰í•´ì•¼í•˜ëŠ” ìƒí™© Setting
 		// TODO Auto-generated method stub
 		if (!LoginMain.bLogInStatus) {
-			btnLogIn.setText("·Î±×ÀÎ");
+			btnLogIn.setText("ë¡œê·¸ì¸");
 			LoginMain.login.setVisible(true);
 		} else {
-			btnLogIn.setText("·Î±×¾Æ¿ô");
+			btnLogIn.setText("ë¡œê·¸ì•„ì›ƒ");
 			if (LoginMain.NowStatus == Status.CUSTOMER) {
 				LoginMain.NowStatus = Status.BOOK;
 				SetChangeable();
 			}
 			LoginMain.bLogInStatus = false;
-			Login();// ·Î±×ÀÎ »óÈ²ÀÌ¸é ·Î±×¾Æ¿ô ÈÄ, ´Ù½ÃÇÑ¹ø È­¸é°»½Å
+			Login();// ë¡œê·¸ì¸ ìƒí™©ì´ë©´ ë¡œê·¸ì•„ì›ƒ í›„, ë‹¤ì‹œí•œë²ˆ í™”ë©´ê°±ì‹ 
 		}
 	}
 
-	public void Login() { // ·Î±×ÀÎ »óÅÂÀÌ¸é ·Î±×¾Æ¿ôÀÌ¶ó´Â ¹®±¸ ³ëÃâ
+	public void Login() { // ë¡œê·¸ì¸ ìƒíƒœì´ë©´ ë¡œê·¸ì•„ì›ƒì´ë¼ëŠ” ë¬¸êµ¬ ë…¸ì¶œ
 		// TODO Auto-generated method stub
 		if (!LoginMain.bLogInStatus) {
-			btnLogIn.setText("·Î±×ÀÎ");
+			btnLogIn.setText("ë¡œê·¸ì¸");
 		} else {
-			btnLogIn.setText("·Î±×¾Æ¿ô");
+			btnLogIn.setText("ë¡œê·¸ì•„ì›ƒ");
 		}
 	}
 
-	private JComboBox<String> SetComboBoxList() { // ÄŞº¸ ¹Ú½º ¼¼ÆÃ
+	private JComboBox<String> SetComboBoxList() { // ì½¤ë³´ ë°•ìŠ¤ ì„¸íŒ…
 		// TODO Auto-generated method stub
 		JComboBox<String> comboBox = new JComboBox<String>(new Vector<String>(array_combox));
 		comboBox.addActionListener(new ActionListener() {
@@ -238,41 +238,41 @@ public class BookMain extends JFrame {
 		return comboBox;
 	}
 
-	public void SetChangeable() // ÃÊ±â ¸®½ºÆ® °ª ¼¼ÆÃ
+	public void SetChangeable() // ì´ˆê¸° ë¦¬ìŠ¤íŠ¸ ê°’ ì„¸íŒ…
 	{
 		ArrayList<String> arrayList = null;
 
 		// model.setColumnCount(0);
 		model.setNumRows(0);
-		// if (model.getRowCount() != 0) {// ÃÊ±âÈ­¸¦ ¾ÈÇØÁÙ °æ¿ì, µ¥ÀÌÅÍ °ªÀÌ °è¼ÓÇØ¼­ ½×ÀÌ±â ¶§¹®¿¡ ÃÊ±âÈ­
+		// if (model.getRowCount() != 0) {// ì´ˆê¸°í™”ë¥¼ ì•ˆí•´ì¤„ ê²½ìš°, ë°ì´í„° ê°’ì´ ê³„ì†í•´ì„œ ìŒ“ì´ê¸° ë•Œë¬¸ì— ì´ˆê¸°í™”
 		// for (int i = 0; i < model.getRowCount(); i++)
 		// model.removeRow(i);
 		// }
 
-		setTitle(lblNewLabel_Title); // ÃÖ»ó´Ü ÀÌ¸§ ¹Ù²î´Â °Í
+		setTitle(lblNewLabel_Title); // ìµœìƒë‹¨ ì´ë¦„ ë°”ë€ŒëŠ” ê²ƒ
 
 		switch (LoginMain.NowStatus) {
 		case BOOK:
-			arrayList = BookInfoList();// ¿ŞÂÊ ¸®½ºÆ®
-			array_combox = BookInfoList(); // ÄŞº¸ ¹Ú½º ¸®½ºÆ®
+			arrayList = BookInfoList();// ì™¼ìª½ ë¦¬ìŠ¤íŠ¸
+			array_combox = BookInfoList(); // ì½¤ë³´ ë°•ìŠ¤ ë¦¬ìŠ¤íŠ¸
 			lbListSize = new JLabel();
 
 			break;
 		case CUSTOMER:
-			arrayList = MemeberInfoList();// ¿ŞÂÊ ¸®½ºÆ®80
-			array_combox = MemeberInfoList(); // ÄŞº¸ ¹Ú½º ¸®½ºÆ®
+			arrayList = MemeberInfoList();// ì™¼ìª½ ë¦¬ìŠ¤íŠ¸80
+			array_combox = MemeberInfoList(); // ì½¤ë³´ ë°•ìŠ¤ ë¦¬ìŠ¤íŠ¸
 
-			lbListSize = new JLabel(" >> ¸®½ºÆ® ÃÑ °³¼ö : " + Member.MemeverVec.size());
+			lbListSize = new JLabel(" >> ë¦¬ìŠ¤íŠ¸ ì´ ê°œìˆ˜ : " + Member.MemeverVec.size());
 			break;
-		case EMPLOYEE: // Á÷¿ø
+		case EMPLOYEE: // ì§ì›
 			break;
 		default:
 			break;
 		}
 		Handling();
-		handling.Clear(); // ¿ŞÂÊ ¼±ÅÃÇÑ ¸®½ºÆ®ÀÇ Á¤º¸ ÃÊ±âÈ­
+		handling.Clear(); // ì™¼ìª½ ì„ íƒí•œ ë¦¬ìŠ¤íŠ¸ì˜ ì •ë³´ ì´ˆê¸°í™”
 
-		SetLeftList(arrayList); // ¿ŞÂÊ ¸ñ·Ï
+		SetLeftList(arrayList); // ì™¼ìª½ ëª©ë¡
 		comlumn.clear();
 		comlumn.addElement(arrayList.get(0));
 		comlumn.addElement(arrayList.get(1));
@@ -281,17 +281,17 @@ public class BookMain extends JFrame {
 		comlumn.addElement(arrayList.get(4));
 		comlumn.addElement(arrayList.get(5));
 
-		model.setColumnIdentifiers(comlumn); // ¼±ÅÃÇÑ ¸ñ·Ï °ª °»½Å ¸Ş¼Òµå
-		SetComboBox(); // ÄŞº¸¹Ú½º ¸®½ºÆ®s
+		model.setColumnIdentifiers(comlumn); // ì„ íƒí•œ ëª©ë¡ ê°’ ê°±ì‹  ë©”ì†Œë“œ
+		SetComboBox(); // ì½¤ë³´ë°•ìŠ¤ ë¦¬ìŠ¤íŠ¸s
 
 		table.addMouseListener(new MouseListener() {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
 				// TODO Auto-generated method stub
-				int iselectRow = 0; // º¸¿©Áö´Â ¸®½ºÆ® Áß ¼±ÅÃµÈ ¸®½ºÆ®ÀÇ ¿­
+				int iselectRow = 0; // ë³´ì—¬ì§€ëŠ” ë¦¬ìŠ¤íŠ¸ ì¤‘ ì„ íƒëœ ë¦¬ìŠ¤íŠ¸ì˜ ì—´
 				iselectRow = table.getSelectedRow();
-				SetLeftListInfo(iselectRow); // ÁÂÃø¿¡ º¸ÀÌ´Â ¸®½ºÆ®¿¡ ¼±ÅÃµÈ ¿­ÀÇ °ª ¼¼ÆÃÇØÁÖ±â
+				SetLeftListInfo(iselectRow); // ì¢Œì¸¡ì— ë³´ì´ëŠ” ë¦¬ìŠ¤íŠ¸ì— ì„ íƒëœ ì—´ì˜ ê°’ ì„¸íŒ…í•´ì£¼ê¸°
 			}
 
 			@Override
@@ -320,10 +320,10 @@ public class BookMain extends JFrame {
 		});
 
 		table.setBounds(150, 100, 200, 200);
-		table.setPreferredScrollableViewportSize(new Dimension(700, 350)); // Å×ÀÌºí
-		table.repaint();// ¼¿ÀÇ ³Êºñ¸¦ Á¶Á¤, ±ÛÀÚ Á¤·Ä // ÀÌ¹ÌÁö ´Ù½Ã ±×·ÁÁÖ±â
+		table.setPreferredScrollableViewportSize(new Dimension(700, 350)); // í…Œì´ë¸”
+		table.repaint();// ì…€ì˜ ë„ˆë¹„ë¥¼ ì¡°ì •, ê¸€ì ì •ë ¬ // ì´ë¯¸ì§€ ë‹¤ì‹œ ê·¸ë ¤ì£¼ê¸°
 
-		JScrollPane listJs = new JScrollPane(table); // ½ºÅ©·Ñ
+		JScrollPane listJs = new JScrollPane(table); // ìŠ¤í¬ë¡¤
 		
 		switch (LoginMain.NowStatus) {
 		case BOOK:
@@ -333,9 +333,9 @@ public class BookMain extends JFrame {
 		case CUSTOMER:
 			for (int i = 0; i < Member.MemeverVec.size(); i++)
 				addMember(Member.MemeverVec.elementAt(i));
-			lbListSize = new JLabel(" >> ¸®½ºÆ® ÃÑ °³¼ö : " + Member.MemeverVec.size());
+			lbListSize = new JLabel(" >> ë¦¬ìŠ¤íŠ¸ ì´ ê°œìˆ˜ : " + Member.MemeverVec.size());
 			break;
-		case EMPLOYEE: // Á÷¿ø
+		case EMPLOYEE: // ì§ì›
 			break;
 		default:
 			break;
@@ -349,42 +349,42 @@ public class BookMain extends JFrame {
 		contentPane.add(panel_2);
 	}
 
-	private void RefreshList() { // ¸®½ºÆ®°¡ »èÁ¦µÇ°Å³ª ¼öÁ¤µÉ ¶§ °ªÀ» °íÄ¡±â À§ÇÔ
+	private void RefreshList() { // ë¦¬ìŠ¤íŠ¸ê°€ ì‚­ì œë˜ê±°ë‚˜ ìˆ˜ì •ë  ë•Œ ê°’ì„ ê³ ì¹˜ê¸° ìœ„í•¨
 		switch (LoginMain.NowStatus) {
 		case BOOK:
 			addBook(Book.BookVec.elementAt(Book.BookVec.size()));
-			lbListSize = new JLabel(" >> ¸®½ºÆ® ÃÑ °³¼ö : " + Book.BookVec.size());
+			lbListSize = new JLabel(" >> ë¦¬ìŠ¤íŠ¸ ì´ ê°œìˆ˜ : " + Book.BookVec.size());
 			break;
 		case CUSTOMER:
 			addMember(Member.MemeverVec.elementAt(Member.MemeverVec.size()));
-			lbListSize = new JLabel(" >> ¸®½ºÆ® ÃÑ °³¼ö : " + Member.MemeverVec.size());
+			lbListSize = new JLabel(" >> ë¦¬ìŠ¤íŠ¸ ì´ ê°œìˆ˜ : " + Member.MemeverVec.size());
 			break;
-		case EMPLOYEE: // Á÷¿ø
+		case EMPLOYEE: // ì§ì›
 			break;
 		default:
 			break;
 		}
 	}
 
-	public String gettextField_Search() { // °Ë»ö¾î ¹Ş±â
+	public String gettextField_Search() { // ê²€ìƒ‰ì–´ ë°›ê¸°
 		return textField_Search.getText();
 	}
 
-	public ArrayList<String> BookInfoList() // Ã¥ ¸®½ºÆ®ÀÇ ¿­À» ´ã´ç
+	public ArrayList<String> BookInfoList() // ì±… ë¦¬ìŠ¤íŠ¸ì˜ ì—´ì„ ë‹´ë‹¹
 	{
 		ArrayList<String> arrayList = null;
 		arrayList = new ArrayList<String>();
 		arrayList.clear();
-		arrayList.add("µµ¼­ ¹øÈ£");
-		arrayList.add("µµ¼­¸í");
-		arrayList.add("ÀúÀÚ");
-		arrayList.add("Á¦ÀÛ³âµµ");
-		arrayList.add("°¡°İ");
-		arrayList.add("´ë¿©ÇöÈ²");
+		arrayList.add("ë„ì„œ ë²ˆí˜¸");
+		arrayList.add("ë„ì„œëª…");
+		arrayList.add("ì €ì");
+		arrayList.add("ì œì‘ë…„ë„");
+		arrayList.add("ê°€ê²©");
+		arrayList.add("ëŒ€ì—¬í˜„í™©");
 		return arrayList;
 	}
 
-	public static void addBook(Book book) { // Book Á¤º¸ °¡Á®¿À±â
+	public static void addBook(Book book) { // Book ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 		Object obj[] = new Object[6];
 		obj[0] = book.getSbooknum();
 		obj[1] = book.getSbookName();
@@ -395,21 +395,21 @@ public class BookMain extends JFrame {
 		model.addRow(obj);
 	}
 
-	public ArrayList<String> MemeberInfoList() // Ã¥ ¸®½ºÆ®ÀÇ ¿­À» ´ã´ç
+	public ArrayList<String> MemeberInfoList() // ì±… ë¦¬ìŠ¤íŠ¸ì˜ ì—´ì„ ë‹´ë‹¹
 	{
 		ArrayList<String> arrayList = null;
 		arrayList = new ArrayList<String>();
 		arrayList.clear();
-		arrayList.add("°í°´¹øÈ£");
-		arrayList.add("¾ÆÀÌµğ");
-		arrayList.add("ºñ¹Ğ¹øÈ£");
-		arrayList.add("ÀÌ¸§");
-		arrayList.add("»ı³â¿ùÀÏ");
-		arrayList.add("¿¬¶ôÃ³");
+		arrayList.add("ê³ ê°ë²ˆí˜¸");
+		arrayList.add("ì•„ì´ë””");
+		arrayList.add("ë¹„ë°€ë²ˆí˜¸");
+		arrayList.add("ì´ë¦„");
+		arrayList.add("ìƒë…„ì›”ì¼");
+		arrayList.add("ì—°ë½ì²˜");
 		return arrayList;
 	}
 
-	public static void addMember(Member member) { // Member Á¤º¸ °¡Á®¿À±â
+	public static void addMember(Member member) { // Member ì •ë³´ ê°€ì ¸ì˜¤ê¸°
 		Object obj[] = new Object[6];
 		obj[0] = member.getCustomernum();
 		obj[1] = member.getSid();
@@ -420,7 +420,7 @@ public class BookMain extends JFrame {
 		model.addRow(obj);
 	}
 
-	private void SetComboBox() { // ÄŞº¸ ¹Ú½º ¹× Á¤Áß¾Ó »ó´Ü¿¡ À§Ä¡ÇØÀÖ´Â ºÎºĞ
+	private void SetComboBox() { // ì½¤ë³´ ë°•ìŠ¤ ë° ì •ì¤‘ì•™ ìƒë‹¨ì— ìœ„ì¹˜í•´ìˆëŠ” ë¶€ë¶„
 		JPanel panel_4 = new JPanel();
 		panel_4.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 1)));
 		panel_4.setBounds(164, 54, 703, 36);
@@ -429,10 +429,10 @@ public class BookMain extends JFrame {
 		Book book = new Book();
 
 		JComboBox<String> comboBox = SetComboBoxList();
-		// ÀÌ ÇÑÁÙÀÌ¸é arrayLsit¿¡ Æ÷ÇÔµÇ¾î
-		// ÀÖ´Â ¹®ÀÚ¿­ ¼ö¸¸Å­ ¸¸µé¾îÁü
+		// ì´ í•œì¤„ì´ë©´ arrayLsitì— í¬í•¨ë˜ì–´
+		// ìˆëŠ” ë¬¸ìì—´ ìˆ˜ë§Œí¼ ë§Œë“¤ì–´ì§
 
-		comboBox.setEditable(false); // ±ÛÀ» ¼öÁ¤ÇÒ ¼ö ¾ø°Ô ¸¸µé¾î ÁÖ´Â ¸Ş¼Òµå
+		comboBox.setEditable(false); // ê¸€ì„ ìˆ˜ì •í•  ìˆ˜ ì—†ê²Œ ë§Œë“¤ì–´ ì£¼ëŠ” ë©”ì†Œë“œ
 		comboBox.addActionListener(comboBox);
 		comboBox.addActionListener(new ActionListener() {
 
@@ -447,57 +447,57 @@ public class BookMain extends JFrame {
 
 		textField_Search = new JTextField();
 		panel_4.add(textField_Search);
-		textField_Search.setColumns(20); // ¶óº§ »çÀÌÁî Á¶Á¤
+		textField_Search.setColumns(20); // ë¼ë²¨ ì‚¬ì´ì¦ˆ ì¡°ì •
 
 		JButton btnNewButton = new JButton("Searchs");
 		panel_4.add(btnNewButton);
 
-		JButton btnNewButton_1 = new JButton("°Ë»ö¸®½ºÆ® »èÁ¦");
+		JButton btnNewButton_1 = new JButton("ê²€ìƒ‰ë¦¬ìŠ¤íŠ¸ ì‚­ì œ");
 		panel_4.add(btnNewButton_1);
 	}
 
-	private void setTitle(JLabel lblNewLabel) { // Á¦ÀÏ »ó´Ü¿¡ ÀÌ¸§ ¼¼ÆÃ
+	private void setTitle(JLabel lblNewLabel) { // ì œì¼ ìƒë‹¨ì— ì´ë¦„ ì„¸íŒ…
 		// TODO Auto-generated method stub
 		String str = "";
 		switch (LoginMain.NowStatus) {
 		case BOOK:
-			str = "Ã¥ ¸ñ·Ï";
+			str = "ì±… ëª©ë¡";
 			break;
 		case CUSTOMER:
-			str = "È¸¿ø Á¤º¸";
+			str = "íšŒì› ì •ë³´";
 			break;
 		default:
-			str = "ÁØºñÁß";
+			str = "ì¤€ë¹„ì¤‘";
 			break;
 		}
-		str += "ÀÔ´Ï´Ù.";
+		str += "ì…ë‹ˆë‹¤.";
 		lblNewLabel.setText(str);
 	}
 
-	private void SetLeftList(ArrayList<String> arraylist) { // ÁÂÃø¿¡ ÀÖ´Â µ¥ÀÌÅÍ Á¤º¸
+	private void SetLeftList(ArrayList<String> arraylist) { // ì¢Œì¸¡ì— ìˆëŠ” ë°ì´í„° ì •ë³´
 		JPanel panel_1 = new JPanel();
 		panel_1.setBounds(12, 54, 140, 440);
 		panel_1.setBorder(new TitledBorder(new LineBorder(Color.BLACK, 2)));
 		contentPane.add(panel_1);
 
-		for (int i = 0; i < Label.length; i++) { // panel¿¡ Ãß°¡ÇØÁÖ°í,
-			// setColumns : ¿­ÀÇ ¼ö¸¦ ¼³Á¤ÇØ, TextField·¹ÀÌ¾Æ¿ôÀ» ¹«È¿
+		for (int i = 0; i < Label.length; i++) { // panelì— ì¶”ê°€í•´ì£¼ê³ ,
+			// setColumns : ì—´ì˜ ìˆ˜ë¥¼ ì„¤ì •í•´, TextFieldë ˆì´ì•„ì›ƒì„ ë¬´íš¨
 			Label[i].setText(arraylist.get(i));
 			panel_1.add(Label[i]);
 			panel_1.add(textField[i]);
 			textField[i].setColumns(10);
 		}
-		textField[0].setEnabled(false); // ¼öÁ¤ ºÒ°¡´É
+		textField[0].setEnabled(false); // ìˆ˜ì • ë¶ˆê°€ëŠ¥
 	}
 
-	private void CreateLeftList() { // ÁÂÃø ¸®½ºÆ® ¿øÇÏ´Â °³¼ö¸¸Å­ ¸¸µé¾îÁÖ±â
+	private void CreateLeftList() { // ì¢Œì¸¡ ë¦¬ìŠ¤íŠ¸ ì›í•˜ëŠ” ê°œìˆ˜ë§Œí¼ ë§Œë“¤ì–´ì£¼ê¸°
 		for (int i = 0; i < Label.length; i++) {
 			Label[i] = new JLabel();
 			textField[i] = new JTextField();
 		}
 	}
 
-	private void Handling() { // ÁÂÃøÇÏ´Ü ¹öÆ° ¸®½ºÆ®
+	private void Handling() { // ì¢Œì¸¡í•˜ë‹¨ ë²„íŠ¼ ë¦¬ìŠ¤íŠ¸
 		handling = new Handling() {
 
 			@Override
@@ -513,15 +513,15 @@ public class BookMain extends JFrame {
 				// TODO Auto-generated method stub
 				for (int i = 0; i < textField.length; i++) {
 					if (textField[i].getText().equals("")) {
-						LoginMain.ShowMessage("ºó°ªÀÌ Á¸ÀçÇÕ´Ï´Ù. ¸ğµç °ªÀ» Ã¤¿öÁÖ¼¼¿ä.");
+						LoginMain.ShowMessage("ë¹ˆê°’ì´ ì¡´ì¬í•©ë‹ˆë‹¤. ëª¨ë“  ê°’ì„ ì±„ì›Œì£¼ì„¸ìš”.");
 						return;
 					}
 				}
 				if (!InsertUpadateChk(textField[0].getText())) {
-					LoginMain.ShowMessage("±âÁ¸ µ¥ÀÌÅÍ °ªÀÌ Á¸ÀçÇÕ´Ï´Ù. ±âÁ¸°ª º¯°æÀ» ¿øÇÏ½Ã¸é Update¸¦, »õ·Î Ãß°¡¸¦ ¿øÇÏ½Ã¸é Clear ÈÄ, Insert ÇØÁÖ¼¼¿ä.");
+					LoginMain.ShowMessage("ê¸°ì¡´ ë°ì´í„° ê°’ì´ ì¡´ì¬í•©ë‹ˆë‹¤. ê¸°ì¡´ê°’ ë³€ê²½ì„ ì›í•˜ì‹œë©´ Updateë¥¼, ìƒˆë¡œ ì¶”ê°€ë¥¼ ì›í•˜ì‹œë©´ Clear í›„, Insert í•´ì£¼ì„¸ìš”.");
 					return;
 				}
-				// ¿©±â¼­ Ã¼Å©ÇÏ±â ¾÷µ¥ÀÌÆ®ÀÎÁö ¾Æ´Ï¸é Ãß°¡ ÀÎÁö
+				// ì—¬ê¸°ì„œ ì²´í¬í•˜ê¸° ì—…ë°ì´íŠ¸ì¸ì§€ ì•„ë‹ˆë©´ ì¶”ê°€ ì¸ì§€
 				switch (LoginMain.NowStatus) {
 				case BOOK:
 					Book book = new Book(LoginMain.SetCodeNumring(), textField[1].getText(), textField[2].getText(),
@@ -545,7 +545,7 @@ public class BookMain extends JFrame {
 			@Override
 			public void Update() {
 				// TODO Auto-generated method stub
-				// ÄÚµå¹øÈ£°¡ ÀÖÀ» °æ¿ì, ÄÚµå ¹øÈ£ ¿Ü¿¡ ¸ğµç °ª ¼öÁ¤ °¡´É
+				// ì½”ë“œë²ˆí˜¸ê°€ ìˆì„ ê²½ìš°, ì½”ë“œ ë²ˆí˜¸ ì™¸ì— ëª¨ë“  ê°’ ìˆ˜ì • ê°€ëŠ¥
 				for (int i = 0; i < Member.MemeverVec.size(); i++) {
 					if (Member.MemeverVec.get(i).getCustomernum().equals(textField[0].getText())) {
 						Member.MemeverVec.get(i).setMemberInfo(textField[1].getText(), textField[2].getText(),
@@ -556,10 +556,10 @@ public class BookMain extends JFrame {
 
 			@Override
 			public void Delete() {
-				boolean blocatedData = false; // »èÁ¦Á¤º¸°¡ Á¤È®ÇÑÁö¿¡ ´ëÇÑ Ã¼Å© | ¸ğµç µ¥ÀÌÅÍ °ªÀÌ ¸Â°Ô ÀÔ·Â µÇ¾îÀÖ´ÂÁö È®ÀÎ
+				boolean blocatedData = false; // ì‚­ì œì •ë³´ê°€ ì •í™•í•œì§€ì— ëŒ€í•œ ì²´í¬ | ëª¨ë“  ë°ì´í„° ê°’ì´ ë§ê²Œ ì…ë ¥ ë˜ì–´ìˆëŠ”ì§€ í™•ì¸
 				int delectindex = 0;
 				// TODO Auto-generated method stub
-				// ´Ù³à¿Í¼­ º¤ÅÍ ¸®ÅÏÇÏ´Â ¸Ş¼Òµå ¸¸µé±â
+				// ë‹¤ë…€ì™€ì„œ ë²¡í„° ë¦¬í„´í•˜ëŠ” ë©”ì†Œë“œ ë§Œë“¤ê¸°
 				switch (LoginMain.NowStatus) {
 				case BOOK:
 					for (int i = 0; i < Book.BookVec.size(); i++) {
@@ -575,12 +575,12 @@ public class BookMain extends JFrame {
 						}
 					}
 					if (!blocatedData) {
-						LoginMain.ShowMessage("»èÁ¦ÇÒ Á¤º¸°¡ Á¤È®ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã È®ÀÎ ÈÄ ÁøÇàÇØÁÖ¼¼¿ä.");
+						LoginMain.ShowMessage("ì‚­ì œí•  ì •ë³´ê°€ ì •í™•í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸ í›„ ì§„í–‰í•´ì£¼ì„¸ìš”.");
 					} else {
-						Book.BookVec.remove(delectindex); // ÇØ´ç ¸®½ºÆ® »èÁ¦ ÈÄ °»½Å±îÁö
+						Book.BookVec.remove(delectindex); // í•´ë‹¹ ë¦¬ìŠ¤íŠ¸ ì‚­ì œ í›„ ê°±ì‹ ê¹Œì§€
 						SetChangeable();
-						LoginMain.ShowMessage("»èÁ¦µÇ¾ú½À´Ï´Ù.");
-						// ¿©±âºÎÅÍ ÇÏ±â
+						LoginMain.ShowMessage("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
+						// ì—¬ê¸°ë¶€í„° í•˜ê¸°
 						FileIO.SaveToFile("Book.txt");
 					}
 					break;
@@ -598,13 +598,13 @@ public class BookMain extends JFrame {
 						}
 					}
 					if (!blocatedData) {
-						LoginMain.ShowMessage("»èÁ¦ÇÒ Á¤º¸°¡ Á¤È®ÇÏÁö ¾Ê½À´Ï´Ù. ´Ù½Ã È®ÀÎ ÈÄ ÁøÇàÇØÁÖ¼¼¿ä.");
+						LoginMain.ShowMessage("ì‚­ì œí•  ì •ë³´ê°€ ì •í™•í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤. ë‹¤ì‹œ í™•ì¸ í›„ ì§„í–‰í•´ì£¼ì„¸ìš”.");
 					} else {
-						Member.MemeverVec.remove(delectindex); // ÇØ´ç ¸®½ºÆ® »èÁ¦ ÈÄ °»½Å±îÁö
+						Member.MemeverVec.remove(delectindex); // í•´ë‹¹ ë¦¬ìŠ¤íŠ¸ ì‚­ì œ í›„ ê°±ì‹ ê¹Œì§€
 						SetChangeable();
-						LoginMain.ShowMessage("»èÁ¦µÇ¾ú½À´Ï´Ù.");
+						LoginMain.ShowMessage("ì‚­ì œë˜ì—ˆìŠµë‹ˆë‹¤.");
 						FileIO.SaveToFile("Member.txt");
-						// ¿©±âºÎÅÍ ÇÏ±â
+						// ì—¬ê¸°ë¶€í„° í•˜ê¸°
 					}
 					break;
 				default:
@@ -616,7 +616,7 @@ public class BookMain extends JFrame {
 
 	}
 
-	private void SetLeftListInfo(int iselectRow) // ÁÂÃø¿¡ º¸ÀÌ´Â ¸®½ºÆ®¿¡ ¼±ÅÃµÈ ¿­ÀÇ °ª ¼¼ÆÃÇØÁÖ±â
+	private void SetLeftListInfo(int iselectRow) // ì¢Œì¸¡ì— ë³´ì´ëŠ” ë¦¬ìŠ¤íŠ¸ì— ì„ íƒëœ ì—´ì˜ ê°’ ì„¸íŒ…í•´ì£¼ê¸°
 	{
 		switch (LoginMain.NowStatus) {
 		case BOOK:
@@ -640,7 +640,7 @@ public class BookMain extends JFrame {
 		}
 	}
 
-	private boolean InsertUpadateChk(String str) { // ÇöÀç ÀúÀåÇÏ·Á°í ÇÏ´Â Á¤º¸°¡ ±âÁ¸¿¡ ÀÖ´Â Á¤º¸¸¦ º¯°æÇÏ´ÂÁö¿¡ ´ëÇÑ Ã¼Å©
+	private boolean InsertUpadateChk(String str) { // í˜„ì¬ ì €ì¥í•˜ë ¤ê³  í•˜ëŠ” ì •ë³´ê°€ ê¸°ì¡´ì— ìˆëŠ” ì •ë³´ë¥¼ ë³€ê²½í•˜ëŠ”ì§€ì— ëŒ€í•œ ì²´í¬
 		boolean bChk = true;
 		switch (LoginMain.NowStatus) {
 		case BOOK:

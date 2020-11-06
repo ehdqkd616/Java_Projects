@@ -5,12 +5,12 @@ import java.util.Vector;
 public class Book {
 
 	public static Vector<Book> BookVec = new Vector<Book>(30);
-	private String sbooknum; // µµ¼­ ¹øÈ£
-	private String sbookName; // µµ¼­¸í
-	private String sbookWriter; // ÀúÀÚ
-	private String sbookBorn; // Á¦ÀÛ³âµµ
-	private String sbookCost; // °¡°İ
-	private String sbookCondition;// ´ë¿© ÇöÈ²
+	private String sbooknum; // ë„ì„œ ë²ˆí˜¸
+	private String sbookName; // ë„ì„œëª…
+	private String sbookWriter; // ì €ì
+	private String sbookBorn; // ì œì‘ë…„ë„
+	private String sbookCost; // ê°€ê²©
+	private String sbookCondition;// ëŒ€ì—¬ í˜„í™©
 
 	public Book(String sbooknum, String sbookName, String sbookWriter, String sbookBorn, String sbookCost,
 			String sbookCondition) {

@@ -18,7 +18,7 @@ public class FindId extends JFrame {
 	private JTextField textbirth;
 
 	public FindId() {
-		setTitle("ID Ã£±â");
+		setTitle("ID ì°¾ê¸°");
 //		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 482, 162);
 		contentPane = new JPanel();
@@ -26,11 +26,11 @@ public class FindId extends JFrame {
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
 
-		JLabel lblId = new JLabel("ÀÌ¸§");
+		JLabel lblId = new JLabel("ì´ë¦„");
 		lblId.setBounds(30, 20, 57, 15);
 		contentPane.add(lblId);
 
-		JLabel lblPW = new JLabel("»ı³â¿ùÀÏ");
+		JLabel lblPW = new JLabel("ìƒë…„ì›”ì¼");
 		lblPW.setBounds(30, 43, 57, 15);
 		contentPane.add(lblPW);
 
@@ -49,27 +49,27 @@ public class FindId extends JFrame {
 		lblNewLabel_1.setBounds(31, 83, 420, 15);
 		contentPane.add(lblNewLabel_1);
 
-		JButton btnNewButton = new JButton("¾ÆÀÌµğ Ã£±â");
+		JButton btnNewButton = new JButton("ì•„ì´ë”” ì°¾ê¸°");
 		btnNewButton.setBounds(313, 17, 136, 44);
-		btnNewButton.setActionCommand("FindID"); // ÇØ´ç ¹öÆ°¿¡ ºÎ¿©ÇÒ ¾×¼Ç ¸í·É¿¡ ´ëÇÑ ¸íÄªÀ» ºÎ¿©
+		btnNewButton.setActionCommand("FindID"); // í•´ë‹¹ ë²„íŠ¼ì— ë¶€ì—¬í•  ì•¡ì…˜ ëª…ë ¹ì— ëŒ€í•œ ëª…ì¹­ì„ ë¶€ì—¬
 		btnNewButton.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				// ÀÌ°÷¿¡¹öÆ°À» ´­·¶À» ¶§ ÁøÇàµÇ´Â °Å ÀÛ¼ºÇÏ±â
+				// ì´ê³³ì—ë²„íŠ¼ì„ ëˆŒë €ì„ ë•Œ ì§„í–‰ë˜ëŠ” ê±° ì‘ì„±í•˜ê¸°
 				String sid = "";
-				if (textname.getText().equals("") || textbirth.getText().equals("")) // ºó°ªÀÌ¸é
+				if (textname.getText().equals("") || textbirth.getText().equals("")) // ë¹ˆê°’ì´ë©´
 				{
-					LoginMain.ShowMessage("ÀÌ¸§°ú »ı³â¿ùÀÏÀ» ÀÔ·ÂÇØÁÖ¼¼¿ä.");
+					LoginMain.ShowMessage("ì´ë¦„ê³¼ ìƒë…„ì›”ì¼ì„ ì…ë ¥í•´ì£¼ì„¸ìš”.");
 					return;
 				} else
 					sid = FindIdValue(textname.getText(), textbirth.getText());
 				if (sid.equals("")) {
-					LoginMain.ShowMessage("ÇØ´çÇÏ´Â ¾ÆÀÌµğ°¡ Á¸ÀçÇÏÁö ¾Ê½À´Ï´Ù.");
+					LoginMain.ShowMessage("í•´ë‹¹í•˜ëŠ” ì•„ì´ë””ê°€ ì¡´ì¬í•˜ì§€ ì•ŠìŠµë‹ˆë‹¤.");
 				} else {
 					StringBuffer strbuffer = new StringBuffer();
 					strbuffer.append(sid);
-					lblNewLabel_1.setText("°í°´´ÔÀÇ ¾ÆÀÌµğ´Â" + IDOutput(strbuffer) + "ÀÔ´Ï´Ù.");
+					lblNewLabel_1.setText("ê³ ê°ë‹˜ì˜ ì•„ì´ë””ëŠ”" + IDOutput(strbuffer) + "ì…ë‹ˆë‹¤.");
 				}
 			}
 		});
@@ -90,7 +90,7 @@ public class FindId extends JFrame {
 		return sid;
 	}
 
-	private StringBuffer IDOutput(StringBuffer sId) // ID ¾Õ ¼¼ÀÚ¸® ±îÁö¸¸ ³ëÃâÇØÁÖ±â ³ª¸ÓÁö´Â *·Î ³ëÃâ
+	private StringBuffer IDOutput(StringBuffer sId) // ID ì• ì„¸ìë¦¬ ê¹Œì§€ë§Œ ë…¸ì¶œí•´ì£¼ê¸° ë‚˜ë¨¸ì§€ëŠ” *ë¡œ ë…¸ì¶œ
 	{
 		String str = "";
 		for (int i = 0; i < (sId.length() - 3); i++) {

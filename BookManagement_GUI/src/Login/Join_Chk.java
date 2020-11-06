@@ -5,7 +5,7 @@ public class Join_Chk {
 
 	}
 
-	public boolean RepetiteID(String sid) // ¾ÆÀÌµğ Áßº¹ È®ÀÎ
+	public boolean RepetiteID(String sid) // ì•„ì´ë”” ì¤‘ë³µ í™•ì¸
 	{
 		for (int i = 0; i < Member.MemeverVec.size(); i++) {
 			if (Member.MemeverVec.get(i).getSid().equals(sid)) {
@@ -16,7 +16,7 @@ public class Join_Chk {
 	}
 
 	public boolean PasswordLengthChk(String spw) {
-		// ºñ¹Ğ¹øÈ£ ±æÀÌ Ã¼Å©"¡Ø ¹®ÀÚ, ¼ıÀÚ·Î 8ÀÚ ÀÌ»ó"
+		// ë¹„ë°€ë²ˆí˜¸ ê¸¸ì´ ì²´í¬"â€» ë¬¸ì, ìˆ«ìë¡œ 8ì ì´ìƒ"
 		if (spw.length() < 8)
 			return false;
 		else
@@ -24,7 +24,7 @@ public class Join_Chk {
 	}
 
 	public boolean PasswordMatchChk(String spw, String sRepw) {
-		// ºñ¹Ğ¹øÈ£ ÀÔ·Â ÈÄ ±× ºñ¹Ğ¹øÈ£¿Í ÀçÈ®ÀÎ ºñ¹Ğ¹øÈ£°¡ ÀÏÄ¡ÇÏ´ÂÁö È®ÀÎ
+		// ë¹„ë°€ë²ˆí˜¸ ì…ë ¥ í›„ ê·¸ ë¹„ë°€ë²ˆí˜¸ì™€ ì¬í™•ì¸ ë¹„ë°€ë²ˆí˜¸ê°€ ì¼ì¹˜í•˜ëŠ”ì§€ í™•ì¸
 		if (spw.equals(sRepw))
 			return true;
 		else

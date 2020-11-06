@@ -23,7 +23,7 @@ public class Login extends JFrame {
 	private String sPW = "";
 
 	public Login() {
-		setTitle("Ãßµù µµ¼­°ü¿¡ ¿À½Å°É È¯¿µÇÕ´Ï´Ù.");
+		setTitle("ì¶”ë”© ë„ì„œê´€ì— ì˜¤ì‹ ê±¸ í™˜ì˜í•©ë‹ˆë‹¤.");
 		// setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 522, 164);
 		contentPane = new JPanel();
@@ -55,68 +55,68 @@ public class Login extends JFrame {
 		contentPane.add(txtPw);
 		txtPw.setColumns(10);
 
-		JButton btnNewButton_Login = new JButton("·Î±×ÀÎ");
+		JButton btnNewButton_Login = new JButton("ë¡œê·¸ì¸");
 		btnNewButton_Login.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// ·Î±×ÀÎ ÇßÀ» ¶§ ÀÛ¾÷
+				// ë¡œê·¸ì¸ í–ˆì„ ë•Œ ì‘ì—…
 				boolean bLoginChk = false;
-				GetIdandPw(txtId, txtPw); // ÀÔ·ÂµÈ °ª °¢°¢ ³Ñ°Ü ÁÖ±â
+				GetIdandPw(txtId, txtPw); // ì…ë ¥ëœ ê°’ ê°ê° ë„˜ê²¨ ì£¼ê¸°
 				LogIn_Chk loginchk = new LogIn_Chk();
-				bLoginChk = loginchk.LogInList_Chk(sID, sPW); // false¸é ·Î±×ÀÎ ½ÇÆĞ
+				bLoginChk = loginchk.LogInList_Chk(sID, sPW); // falseë©´ ë¡œê·¸ì¸ ì‹¤íŒ¨
 
-				if (!bLoginChk) { // ·Î±×ÀÎ ½ÇÆĞs
-					JOptionPane.showMessageDialog(null, "¾ÆÀÌµğ ¶Ç´Â ºñ¹Ğ¹øÈ£¸¦ È®ÀÎ ÈÄ\n´Ù½Ã ·Î±×ÀÎÇØÁÖ¼¼¿ä.");
-				} else { // ·Î±×ÀÎ ¼º°ø
-					LoginMain.login.setVisible(false); // ±âÁ¸ÀÇ ·Î±×ÀÎ È­¸é ²¨ÁÖ±â
-					LoginMain.bLogInStatus = true;// ·Î±×ÀÎ ¼º°øÀÌ¸é »óÅÂº¯È¯ ¹× ·Î±×ÀÎ ¹öÆ° ¼öÁ¤
-					LoginMain.bookmain.Login(); // È­¸é °»½Å
+				if (!bLoginChk) { // ë¡œê·¸ì¸ ì‹¤íŒ¨s
+					JOptionPane.showMessageDialog(null, "ì•„ì´ë”” ë˜ëŠ” ë¹„ë°€ë²ˆí˜¸ë¥¼ í™•ì¸ í›„\në‹¤ì‹œ ë¡œê·¸ì¸í•´ì£¼ì„¸ìš”.");
+				} else { // ë¡œê·¸ì¸ ì„±ê³µ
+					LoginMain.login.setVisible(false); // ê¸°ì¡´ì˜ ë¡œê·¸ì¸ í™”ë©´ êº¼ì£¼ê¸°
+					LoginMain.bLogInStatus = true;// ë¡œê·¸ì¸ ì„±ê³µì´ë©´ ìƒíƒœë³€í™˜ ë° ë¡œê·¸ì¸ ë²„íŠ¼ ìˆ˜ì •
+					LoginMain.bookmain.Login(); // í™”ë©´ ê°±ì‹ 
 				}
-				// ÀÌ°÷¿¡ »õ·Î¿î È­¸é ±¸Çö
+				// ì´ê³³ì— ìƒˆë¡œìš´ í™”ë©´ êµ¬í˜„
 			}
 		});
 		btnNewButton_Login.setBounds(274, 27, 102, 46);
 		contentPane.add(btnNewButton_Login);
 
-		JButton btnNewButton_Sign = new JButton("È¸¿ø °¡ÀÔ");
+		JButton btnNewButton_Sign = new JButton("íšŒì› ê°€ì…");
 		btnNewButton_Sign.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// // È¸¿ø°¡ÀÔ ÇßÀ» ¶§ ÀÛ¾÷
-				// LoginMain.login.setVisible(false); // ±âÁ¸ÀÇ ·Î±×ÀÎ È­¸é ²¨ÁÖ±â
+				// // íšŒì›ê°€ì… í–ˆì„ ë•Œ ì‘ì—…
+				// LoginMain.login.setVisible(false); // ê¸°ì¡´ì˜ ë¡œê·¸ì¸ í™”ë©´ êº¼ì£¼ê¸°
 
-				LoginMain.join.setVisible(true); // È¸¿ø °¡ÀÔ È­¸é ÄÑÁÖ±â
+				LoginMain.join.setVisible(true); // íšŒì› ê°€ì… í™”ë©´ ì¼œì£¼ê¸°
 			}
 		});
 		btnNewButton_Sign.setBounds(274, 80, 102, 30);
 		contentPane.add(btnNewButton_Sign);
 
-		JButton button_FindID = new JButton("ID Ã£±â");
+		JButton button_FindID = new JButton("ID ì°¾ê¸°");
 		button_FindID.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				// IDÃ£±â ÇßÀ» ¶§ ÀÛ¾÷
-				// LoginMain.login.setVisible(false); // ·Î±×ÀÎ È­¸é off
+				// IDì°¾ê¸° í–ˆì„ ë•Œ ì‘ì—…
+				// LoginMain.login.setVisible(false); // ë¡œê·¸ì¸ í™”ë©´ off
 				LoginMain.findId.setVisible(true);
 			}
 		});
 		button_FindID.setBounds(40, 80, 109, 30);
 		contentPane.add(button_FindID);
 
-		JButton button_Findepw = new JButton("PWÃ£±â");
+		JButton button_Findepw = new JButton("PWì°¾ê¸°");
 		button_Findepw.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
-				// PWÃ£±â ÇßÀ» ¶§ ÀÛ¾÷
-				// LoginMain.login.setVisible(false); // ·Î±×ÀÎ È­¸é off
+				// PWì°¾ê¸° í–ˆì„ ë•Œ ì‘ì—…
+				// LoginMain.login.setVisible(false); // ë¡œê·¸ì¸ í™”ë©´ off
 				LoginMain.findpw.setVisible(true);
 			}
 		});
 		button_Findepw.setBounds(152, 80, 118, 30);
 		contentPane.add(button_Findepw);
 
-		JButton button = new JButton("°Ô½ºÆ® ÀÔÀå");
+		JButton button = new JButton("ê²ŒìŠ¤íŠ¸ ì…ì¥");
 		button.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				LoginMain.login.setVisible(false); // ±âÁ¸ÀÇ ·Î±×ÀÎ È­¸é ²¨ÁÖ±â
+				LoginMain.login.setVisible(false); // ê¸°ì¡´ì˜ ë¡œê·¸ì¸ í™”ë©´ êº¼ì£¼ê¸°
 			}
 		});
 		button.setBounds(388, 26, 102, 84);

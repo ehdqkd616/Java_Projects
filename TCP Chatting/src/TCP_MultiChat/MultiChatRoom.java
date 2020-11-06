@@ -6,15 +6,15 @@ public class MultiChatRoom {
 
 	ArrayList<MultiServerThread2> list = new ArrayList<MultiServerThread2>();
 
-	// Server ¿¡ º¸¿©ÁÖ´Â È­¸é : Á¢¼ÓÀÚ ¼ö, Á¢¼ÓÀÚ ¸í
+	// Server ì— ë³´ì—¬ì£¼ëŠ” í™”ë©´ : ì ‘ì†ì ìˆ˜, ì ‘ì†ì ëª…
 	public void display() {
-		// Á¢¼ÓÀÚ ¼ö
-		System.out.println("ÇöÀç Á¢¼ÓÀÚ Á¤º¸ : Á¢¼ÓÀÚ ¼ö -> " + list.size());
+		// ì ‘ì†ì ìˆ˜
+		System.out.println("í˜„ì¬ ì ‘ì†ì ì •ë³´ : ì ‘ì†ì ìˆ˜ -> " + list.size());
 
-		// ÇöÀç Á¢¼ÓµÈ Client ID º¸¿©ÁÜ, ¸¸¾à Á¢¼ÓÇÑ Client °¡ ¾øÀ» °æ¿ì º¸¿©ÁÖÁö ¾ÊÀ½ - ½ÇÆĞ...
+		// í˜„ì¬ ì ‘ì†ëœ Client ID ë³´ì—¬ì¤Œ, ë§Œì•½ ì ‘ì†í•œ Client ê°€ ì—†ì„ ê²½ìš° ë³´ì—¬ì£¼ì§€ ì•ŠìŒ - ì‹¤íŒ¨...
 
 		if (list.size() != 0) {
-			System.out.println("******** Á¢¼ÓÇÑ Client ID ********");
+			System.out.println("******** ì ‘ì†í•œ Client ID ********");
 			for (int i = 0; i < list.size(); i++) {
 				System.out.println(list.get(i).strId);
 			}
@@ -23,12 +23,12 @@ public class MultiChatRoom {
 
 	}
 
-	// Client ¸¦ ArrayList ¿¡ Ãß°¡
+	// Client ë¥¼ ArrayList ì— ì¶”ê°€
 	public void enterRoom(MultiServerThread2 tmpMultiServerThread2) {
 		list.add(tmpMultiServerThread2);
 	}
 
-	// Client ¿¡°Ô ¸Ş½ÃÁö Àü¼Û
+	// Client ì—ê²Œ ë©”ì‹œì§€ ì „ì†¡
 	public void broadCasting(String message) {
 		MultiServerThread2 multiServerThread2 = null;
 
@@ -38,13 +38,13 @@ public class MultiChatRoom {
 		}
 	}
 
-	// Client °¡ Ã¤ÆÃ¿¡¼­ ³ª°¥ ¶§
+	// Client ê°€ ì±„íŒ…ì—ì„œ ë‚˜ê°ˆ ë•Œ
 	public void exitRoom(MultiServerThread2 tmpMultiServerThread2) {
 		boolean isDelete = list.remove(tmpMultiServerThread2);
 		if (isDelete) {
-			System.out.println(tmpMultiServerThread2.strId + " Client¸¦ MultiServerThread2¿¡¼­ Á¦°Å");
+			System.out.println(tmpMultiServerThread2.strId + " Clientë¥¼ MultiServerThread2ì—ì„œ ì œê±°");
 		} else {
-			System.out.println(tmpMultiServerThread2.strId + " Client¸¦ MultiServerThread2¿¡¼­ Á¦°Å ½ÇÆĞ");
+			System.out.println(tmpMultiServerThread2.strId + " Clientë¥¼ MultiServerThread2ì—ì„œ ì œê±° ì‹¤íŒ¨");
 		}
 	}
 

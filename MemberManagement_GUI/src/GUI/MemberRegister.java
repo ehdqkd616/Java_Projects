@@ -18,36 +18,36 @@ public class MemberRegister extends MemberManagements implements ActionListener 
 	private JTextField addr;
 	private JTextField code;
 	private JTextField job;
-	JButton bt1 = new JButton("µî·Ï");
-	JButton bt2 = new JButton("Ãë¼Ò");
+	JButton bt1 = new JButton("ë“±ë¡");
+	JButton bt2 = new JButton("ì·¨ì†Œ");
 	MyFrame frame = new MyFrame();
 	JRadioButton female;
 	JRadioButton male;
 	ButtonGroup bg = new ButtonGroup();
 	
 	public MemberRegister(){
-		frame.setTitle("È¸¿øµî·Ï");
+		frame.setTitle("íšŒì›ë“±ë¡");
 		frame.setSize(500, 330);
 		frame.setLocation(500, 300);
 		frame.setDefaultCloseOperation(frame.EXIT_ON_CLOSE);
 	
-		JLabel mCode = new JLabel("È¸¿ø ÄÚµå :");
+		JLabel mCode = new JLabel("íšŒì› ì½”ë“œ :");
 		mCode.setBounds(27, 16, 90, 30);
 		frame.getContentPane().add(mCode);
 		
-		JLabel mName = new JLabel("È¸¿ø ÀÌ¸§ :");
+		JLabel mName = new JLabel("íšŒì› ì´ë¦„ :");
 		mName.setBounds(207, 16, 90, 30);
 		frame.getContentPane().add(mName);
 		
-		JLabel mAge = new JLabel("È¸¿ø ³ªÀÌ :");
+		JLabel mAge = new JLabel("íšŒì› ë‚˜ì´ :");
 		mAge.setBounds(27, 56, 90, 30);
 		frame.getContentPane().add(mAge);
 		
-		JLabel mPhone = new JLabel("È¸¿ø ÀüÈ­¹øÈ£ :");
+		JLabel mPhone = new JLabel("íšŒì› ì „í™”ë²ˆí˜¸ :");
 		mPhone.setBounds(27, 96, 90, 30);
 		frame.getContentPane().add(mPhone);
 		
-		JLabel mAddr = new JLabel("È¸¿ø ÁÖ¼Ò :");
+		JLabel mAddr = new JLabel("íšŒì› ì£¼ì†Œ :");
 		mAddr.setBounds(27, 182, 90, 30);
 		frame.getContentPane().add(mAddr);
 		
@@ -87,14 +87,14 @@ public class MemberRegister extends MemberManagements implements ActionListener 
 		}
 		frame.getContentPane().add(code);
 		
-		JLabel mSex = new JLabel("È¸¿ø ¼ºº° :");
+		JLabel mSex = new JLabel("íšŒì› ì„±ë³„ :");
 		mSex.setBounds(207, 56, 90, 30);
 		frame.getContentPane().add(mSex);
 		
-		male = new JRadioButton("³²");
+		male = new JRadioButton("ë‚¨");
 		male.setBounds(283, 60, 45, 23);
 		
-		female = new JRadioButton("¿©");
+		female = new JRadioButton("ì—¬");
 		female.setBounds(331, 60, 45, 23);
 		
 		bg.add(male);
@@ -103,11 +103,11 @@ public class MemberRegister extends MemberManagements implements ActionListener 
 		frame.getContentPane().add(male);
 		frame.getContentPane().add(female);
 		
-		JLabel label = new JLabel("('-'¾øÀÌ ÀÔ·ÂÇØÁÖ¼¼¿ä)");
+		JLabel label = new JLabel("('-'ì—†ì´ ì…ë ¥í•´ì£¼ì„¸ìš”)");
 		label.setBounds(280, 104, 138, 15);
 		frame.getContentPane().add(label);
 		
-		JLabel mJob = new JLabel("Á÷Àå¸í(ÇĞ»ıÀº ÇĞ±³¸í) : ");
+		JLabel mJob = new JLabel("ì§ì¥ëª…(í•™ìƒì€ í•™êµëª…) : ");
 		mJob.setBounds(27, 147, 144, 15);
 		frame.getContentPane().add(mJob);
 		
@@ -132,47 +132,47 @@ public class MemberRegister extends MemberManagements implements ActionListener 
 			String memName = name.getText();
 			String memAge = age.getText();
 			if(male.isSelected()){
-				memSex = "³²ÀÚ";
+				memSex = "ë‚¨ì";
 			}else if(female.isSelected()){
-				memSex = "¿©ÀÚ";
+				memSex = "ì—¬ì";
 			}
 			String memPhone = phone.getText();
 			String memJob = job.getText();
 			String memAddr = addr.getText();
 			if(memCode.equals("")){
-				JOptionPane.showMessageDialog(this, "È¸¿ø ÄÚµåÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "íšŒì› ì½”ë“œì„ ì…ë ¥í•´ ì£¼ì„¸ìš”", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}else if(memName.equals("")){
-				JOptionPane.showMessageDialog(this, "È¸¿ø ÀÌ¸§À» ÀÔ·ÂÇØ ÁÖ¼¼¿ä", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "íšŒì› ì´ë¦„ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}else if(memAge.equals("")){
-				JOptionPane.showMessageDialog(this, "È¸¿ø ³ªÀÌ¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "íšŒì› ë‚˜ì´ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}else if(memSex.equals("")){
-				JOptionPane.showMessageDialog(this, "È¸¿ø ¼ºº°¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "íšŒì› ì„±ë³„ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}else if(memPhone.equals("")){
-				JOptionPane.showMessageDialog(this, "È¸¿ø ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "íšŒì› ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}else if(memJob.equals("")){
-				JOptionPane.showMessageDialog(this, "È¸¿ø Á÷Àå¸íÀ» ÀÔ·ÂÇØ ÁÖ¼¼¿ä", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "íšŒì› ì§ì¥ëª…ì„ ì…ë ¥í•´ ì£¼ì„¸ìš”", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}else if(memAddr.equals("")){
-				JOptionPane.showMessageDialog(this, "È¸¿ø ÁÖ¼Ò¸¦ ÀÔ·ÂÇØ ÁÖ¼¼¿ä", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+				JOptionPane.showMessageDialog(this, "íšŒì› ì£¼ì†Œë¥¼ ì…ë ¥í•´ ì£¼ì„¸ìš”", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 			}else{
 				for(int i=0; i<list.size(); i++){
 					if(memCode.equals(list.get(i).getCode())){
-						JOptionPane.showMessageDialog(this, "µ¿ÀÏÇÑ È¸¿øÄÚµå°¡ ÀÖ½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+						JOptionPane.showMessageDialog(this, "ë™ì¼í•œ íšŒì›ì½”ë“œê°€ ìˆìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 					}
 				}
 				if(!integerOrNot(memCode)){
-					JOptionPane.showMessageDialog(this, "È¸¿ø ÄÚµå´Â ¹®ÀÚ¸¦ ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "íšŒì› ì½”ë“œëŠ” ë¬¸ìë¥¼ ì…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 				}else if(!integerOrNot(memAge)){
-					JOptionPane.showMessageDialog(this, "È¸¿ø ³ªÀÌ´Â ¹®ÀÚ¸¦ ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "íšŒì› ë‚˜ì´ëŠ” ë¬¸ìë¥¼ ì…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 				}else if(!integerOrNot(memPhone)){
-					JOptionPane.showMessageDialog(this, "ÀüÈ­¹øÈ£´Â ¹®ÀÚ¸¦ ÀÔ·ÂÇÒ ¼ö ¾ø½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "ì „í™”ë²ˆí˜¸ëŠ” ë¬¸ìë¥¼ ì…ë ¥í•  ìˆ˜ ì—†ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 				}else if(!(memPhone.substring(0,2).equals("01") && (memPhone.length() ==10 || memPhone.length() ==11))){
-					JOptionPane.showMessageDialog(this, "Àß¸øµÈ ÀüÈ­¹øÈ£¸¦ ÀÔ·ÂÇÏ¿´½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
+					JOptionPane.showMessageDialog(this, "ì˜ëª»ëœ ì „í™”ë²ˆí˜¸ë¥¼ ì…ë ¥í•˜ì˜€ìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
 				}else{
-					int check = JOptionPane.showConfirmDialog(this, "ÀÔ·ÂÇÑ ³»¿ëÀÌ ¸Â½À´Ï±î?\n" + 
-							"È¸¿ø ÄÚµå : "+memCode + "\nÈ¸¿ø ÀÌ¸§ : "+memName + "\nÈ¸¿ø ³ªÀÌ : " + memAge + 
-							"\nÈ¸¿ø ¼ºº° : " + memSex + "\nÈ¸¿ø ÀüÈ­¹øÈ£ : " + memPhone + "\nÁ÷Àå : " +memJob +
-							"\nÈ¸¿ø ÁÖ¼Ò : " + memAddr,
-							"¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE );
+					int check = JOptionPane.showConfirmDialog(this, "ì…ë ¥í•œ ë‚´ìš©ì´ ë§ìŠµë‹ˆê¹Œ?\n" + 
+							"íšŒì› ì½”ë“œ : "+memCode + "\níšŒì› ì´ë¦„ : "+memName + "\níšŒì› ë‚˜ì´ : " + memAge + 
+							"\níšŒì› ì„±ë³„ : " + memSex + "\níšŒì› ì „í™”ë²ˆí˜¸ : " + memPhone + "\nì§ì¥ : " +memJob +
+							"\níšŒì› ì£¼ì†Œ : " + memAddr,
+							"ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE );
 					if(check == 0){
 						Members m = new Members();
 						m.setCode(memCode);
@@ -183,8 +183,8 @@ public class MemberRegister extends MemberManagements implements ActionListener 
 						m.setJob(memJob);
 						m.setAddr(memAddr);
 						list.add(m);
-						JOptionPane.showMessageDialog(this, "È¸¿øÀÌ µî·ÏµÇ¾ú½À´Ï´Ù.", "¸Ş½ÃÁö", JOptionPane.INFORMATION_MESSAGE);
-						int check2 = JOptionPane.showConfirmDialog(this, "°è¼Ó ÀÔ·ÂÇÏ½Ã°Ú½À´Ï±î?");
+						JOptionPane.showMessageDialog(this, "íšŒì›ì´ ë“±ë¡ë˜ì—ˆìŠµë‹ˆë‹¤.", "ë©”ì‹œì§€", JOptionPane.INFORMATION_MESSAGE);
+						int check2 = JOptionPane.showConfirmDialog(this, "ê³„ì† ì…ë ¥í•˜ì‹œê² ìŠµë‹ˆê¹Œ?");
 						if(check2 == 0){
 							code.setText(Integer.parseInt(list.get(list.size()-1).getCode()) +1 + "");
 							name.setText(null);
@@ -206,7 +206,7 @@ public class MemberRegister extends MemberManagements implements ActionListener 
 		}
 	}
 	
-	public boolean integerOrNot(String strData){ // ÀÔ·Â°ªÀÌ ¼ıÀÚÀÎÁö ¹®ÀÚÀÎÁö ÆÇº° : 
+	public boolean integerOrNot(String strData){ // ì…ë ¥ê°’ì´ ìˆ«ìì¸ì§€ ë¬¸ìì¸ì§€ íŒë³„ : 
 		char[] charData = strData.toCharArray();
 		boolean check=true;
 		while(check){

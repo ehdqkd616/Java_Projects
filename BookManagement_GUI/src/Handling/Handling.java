@@ -1,13 +1,13 @@
 package Handling;
 
 public interface Handling {
-	// ¸®½ºÆ® Å¬¸®¾î / »ğÀÔ / ¼öÁ¤ / »èÁ¦
-	public void Clear(); // ¸®½ºÆ® Å¬¸®¾î
+	// ë¦¬ìŠ¤íŠ¸ í´ë¦¬ì–´ / ì‚½ì… / ìˆ˜ì • / ì‚­ì œ
+	public void Clear(); // ë¦¬ìŠ¤íŠ¸ í´ë¦¬ì–´
 
-	public void Insert(); // »õ·Î¿î µ¥ÀÌÅÍ Ãß°¡
+	public void Insert(); // ìƒˆë¡œìš´ ë°ì´í„° ì¶”ê°€
 
-	public void Update(); // µ¥ÀÌÅÍ °ª ¼öÁ¤
+	public void Update(); // ë°ì´í„° ê°’ ìˆ˜ì •
 
-	public void Delete(); // µ¥ÀÌÅÍ °ª »èÁ¦
+	public void Delete(); // ë°ì´í„° ê°’ ì‚­ì œ
 
 }

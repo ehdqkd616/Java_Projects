@@ -11,9 +11,9 @@ import java.net.Socket;
 public class MultiClientThread2 extends Thread {
 
 	Socket socket = null;
-	BufferedReader stdin; // Ç¥ÁØÀÔ·Â°´Ã¼(Å°º¸µå)
-	BufferedWriter bw = null; // µ¥ÀÌÅÍ ¾²±â
-	BufferedReader br = null; // µ¥ÀÌÅÍ ÀĞ±â
+	BufferedReader stdin; // í‘œì¤€ì…ë ¥ê°ì²´(í‚¤ë³´ë“œ)
+	BufferedWriter bw = null; // ë°ì´í„° ì“°ê¸°
+	BufferedReader br = null; // ë°ì´í„° ì½ê¸°
 	// PrintWriter pw = null;
 
 	// String strId = "";
@@ -23,14 +23,14 @@ public class MultiClientThread2 extends Thread {
 
 		try {
 			//////////////////////////////////////////////////////////////////////////
-			// 1. ÀÔ/Ãâ·Â °´Ã¤ »ı¼º
+			// 1. ì…/ì¶œë ¥ ê°ì±„ ìƒì„±
 			//////////////////////////////////////////////////////////////////////////
 			bw = new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 			// pw = new PrintWriter(socket.getOutputStream());
 			//////////////////////////////////////////////////////////////////////////
 		} catch (IOException e) {
-			System.out.println("MultiClientThread2 ½ºÆ®·¥ »ı¼º ½ÇÆĞ");
+			System.out.println("MultiClientThread2 ìŠ¤íŠ¸ë¨ ìƒì„± ì‹¤íŒ¨");
 		}
 	}
 
@@ -40,7 +40,7 @@ public class MultiClientThread2 extends Thread {
 
 			while (!msg.equals("bye")) {
 				////////////////////////////////////
-				// 1. Client ÀÇ ÀÔ·ÂÀ» ¹ŞÀº ÈÄ Ãâ·Â
+				// 1. Client ì˜ ì…ë ¥ì„ ë°›ì€ í›„ ì¶œë ¥
 				////////////////////////////////////
 				msg = br.readLine();
 				System.out.println(msg);
@@ -49,7 +49,7 @@ public class MultiClientThread2 extends Thread {
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			System.out.println("MultiClientThread2 run() ¿¹¿Ü ¹ß»ı");
+			System.out.println("MultiClientThread2 run() ì˜ˆì™¸ ë°œìƒ");
 		} finally {
 			try {
 				br.close();
@@ -61,12 +61,12 @@ public class MultiClientThread2 extends Thread {
 		}
 	}
 
-	// Ã¤ÆÃ
+	// ì±„íŒ…
 	public void chatProcess() {
 		try {
 			String msg = "";
 			while (!msg.equals("bye")) {
-				System.out.println("¸Ş¼¼Áö¸¦ ÀÔ·ÂÇÏ½Ã¿À : ");
+				System.out.println("ë©”ì„¸ì§€ë¥¼ ì…ë ¥í•˜ì‹œì˜¤ : ");
 				msg = stdin.readLine();
 
 				// msg = msg + System.getProperty("line.separator");
@@ -79,20 +79,20 @@ public class MultiClientThread2 extends Thread {
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			System.out.println("*** ¸Ş¼¼Áö¸¦ ÀÔ·Â¹Ş¾Æ Àü¼ÛÁß ¿¹¿Ü ¹ß»ı ***");
+			System.out.println("*** ë©”ì„¸ì§€ë¥¼ ì…ë ¥ë°›ì•„ ì „ì†¡ì¤‘ ì˜ˆì™¸ ë°œìƒ ***");
 		} finally {
 			try {
 				br.close();
 				bw.close();
 				// pw.close();
 				socket.close();
-				System.out.println("chatProcess() Á¾·á");
+				System.out.println("chatProcess() ì¢…ë£Œ");
 			} catch (IOException e) {
 			}
 		}
 	}
 
-	// Client ·Î±×ÀÎ(ID ÀÔ·Â)
+	// Client ë¡œê·¸ì¸(ID ì…ë ¥)
 	public void login() {
 		try {
 			stdin = new BufferedReader(new InputStreamReader(System.in));
@@ -100,14 +100,14 @@ public class MultiClientThread2 extends Thread {
 			String strId;
 			do {
 				////////////////////////////////////////////
-				// 1. Client ID ÀÔ·Â¹Ş±â
+				// 1. Client ID ì…ë ¥ë°›ê¸°
 				////////////////////////////////////////////
-				System.out.print("id¸¦ ÀÔ·ÂÇÏ½Ã¿À ==> ");
+				System.out.print("idë¥¼ ì…ë ¥í•˜ì‹œì˜¤ ==> ");
 				strId = stdin.readLine();
 				////////////////////////////////////////////
 
 				///////////////////////////////
-				// 2. Server ·Î Client ID ÀúÀå
+				// 2. Server ë¡œ Client ID ì €ì¥
 				///////////////////////////////
 				// strId = strId + System.getProperty("line.separator");
 				bw.write(strId + "\n");
@@ -117,16 +117,16 @@ public class MultiClientThread2 extends Thread {
 				// pw.flush();
 				///////////////////////////////
 
-				// Server ·Î 'ok' ÀĞ¾î¿À±â(¹Ì¸® ÀÔ·ÂµÈ ¾ÆÀÌµğ°¡ ÀÖÀ» °æ¿ì »ç¿ëÇÔ.. Áö±İ »ç¿ëÇØµµ ¹«°ü)
+				// Server ë¡œ 'ok' ì½ì–´ì˜¤ê¸°(ë¯¸ë¦¬ ì…ë ¥ëœ ì•„ì´ë””ê°€ ìˆì„ ê²½ìš° ì‚¬ìš©í•¨.. ì§€ê¸ˆ ì‚¬ìš©í•´ë„ ë¬´ê´€)
 				result = br.readLine();
 
 			} while (!result.equals("ok"));
 
-			System.out.println("########### " + strId + "´Ô ·Î±×ÀÎ ¼º°ø" + " ###########");
+			System.out.println("########### " + strId + "ë‹˜ ë¡œê·¸ì¸ ì„±ê³µ" + " ###########");
 
 		} catch (Exception e) {
 			System.out.println(e.getMessage());
-			System.out.println("login() Áß ¿¹¿Ü ¹ß»ı");
+			System.out.println("login() ì¤‘ ì˜ˆì™¸ ë°œìƒ");
 		}
 	}
 

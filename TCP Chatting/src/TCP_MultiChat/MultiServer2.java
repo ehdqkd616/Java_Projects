@@ -10,9 +10,9 @@ import java.util.ArrayList;
 
 /*
 
- * 1:N Ã¤ÆÃ
+ * 1:N ì±„íŒ…
 
- * N ¸íÀÇ Client ³¢¸® °è¼ÓÀûÀÎ ´ëÈ­°¡ °¡´ÉÇÏµµ·Ï ±¸Çö
+ * N ëª…ì˜ Client ë¼ë¦¬ ê³„ì†ì ì¸ ëŒ€í™”ê°€ ê°€ëŠ¥í•˜ë„ë¡ êµ¬í˜„
 
  */
 
@@ -24,17 +24,17 @@ public class MultiServer2 {
 
 		ServerSocket serverSocket = null;
 
-		MultiChatRoom multiChatRoom = null; // MultiCatRoom °´Ã¼
+		MultiChatRoom multiChatRoom = null; // MultiCatRoom ê°ì²´
 
-		MultiServerThread2 mst = null; // Client ¿¬°á ÀÓ½Ã °´Ã¼
+		MultiServerThread2 mst = null; // Client ì—°ê²° ì„ì‹œ ê°ì²´
 
-		int portNumber = 3000; // port ¹øÈ£
+		int portNumber = 3000; // port ë²ˆí˜¸
 
 		try {
 
 			/////////////////////////////////////
 
-			// 1. MultiChatRoom °´Ã¤ »ı¼º
+			// 1. MultiChatRoom ê°ì±„ ìƒì„±
 
 			/////////////////////////////////////
 
@@ -44,7 +44,7 @@ public class MultiServer2 {
 
 			//////////////////////////////////////////////////////////
 
-			// 2. portNumber ¸¦ ±â¹İÀ¸·Î ÇÏ´Â ¼ÒÄÏ »ı¼º
+			// 2. portNumber ë¥¼ ê¸°ë°˜ìœ¼ë¡œ í•˜ëŠ” ì†Œì¼“ ìƒì„±
 
 			//////////////////////////////////////////////////////////
 
@@ -52,43 +52,43 @@ public class MultiServer2 {
 
 			System.out.println("##################################");
 
-			System.out.println("#        Server ÁØºñ ¿Ï·á        #");
+			System.out.println("#        Server ì¤€ë¹„ ì™„ë£Œ        #");
 
 			System.out.println("##################################");
 
 			//////////////////////////////////////////////////////////
 
-			// Server À¯Áö
+			// Server ìœ ì§€
 
 			while (true) {
 
 				////////////////////////////////////////////////////////////////////////////
 
-				// 3. ClientÀÇ ¿¬°á¿äÃ» ´ë±â, ¿¬°áµÇ¸é Client Socket ÀÌ ¸¸µé¾îÁü
+				// 3. Clientì˜ ì—°ê²°ìš”ì²­ ëŒ€ê¸°, ì—°ê²°ë˜ë©´ Client Socket ì´ ë§Œë“¤ì–´ì§
 
 				////////////////////////////////////////////////////////////////////////////
 
 				socket = serverSocket.accept();
 
-				System.out.println(socket.getInetAddress() + " ¿¬°á");
+				System.out.println(socket.getInetAddress() + " ì—°ê²°");
 
 				////////////////////////////////////////////////////////////////////////////
 
 				/////////////////////////////////////////////////////////
 
-				// 4. Á¢¼ÓµÈ Client ¸¦ ArrayList¿¡ ÀúÀå
+				// 4. ì ‘ì†ëœ Client ë¥¼ ArrayListì— ì €ì¥
 
 				/////////////////////////////////////////////////////////
 
-				// Ã¤ÆÃ °´Ã¼ »ı¼º
+				// ì±„íŒ… ê°ì²´ ìƒì„±
 
 				mst = new MultiServerThread2(socket, multiChatRoom);
 
-				// Thread ÀÛµ¿½ÃÄÑ 1)·Î±×ÀÎ Ã³¸® 2)Ã¤ÆÃ ½ÃÀÛ
+				// Thread ì‘ë™ì‹œì¼œ 1)ë¡œê·¸ì¸ ì²˜ë¦¬ 2)ì±„íŒ… ì‹œì‘
 
 				mst.start();
 
-				// Ã¤ÆÃ °´Ã¼¸¦ ArrayList¿¡ ÀúÀå
+				// ì±„íŒ… ê°ì²´ë¥¼ ArrayListì— ì €ì¥
 
 				multiChatRoom.enterRoom(mst);
 

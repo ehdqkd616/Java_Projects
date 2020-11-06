@@ -16,7 +16,7 @@ public class TCPClient {
  
     public static void main(String[] args) {
  
-        // Å¬¶óÀÌ¾ðÆ® ¼ÒÄÏ »ý¼º
+        // í´ë¼ì´ì–¸íŠ¸ ì†Œì¼“ ìƒì„±
  
         Socket socket = new Socket();
         Scanner sc = new Scanner(System.in);
@@ -45,7 +45,7 @@ public class TCPClient {
                 osw = new OutputStreamWriter(os, "UTF-8");
                 pw = new PrintWriter(osw, true);
  
-                // ÀÐ´Â°Å
+                // ì½ëŠ”ê±°
                 System.out.print(">>");
                 String data = sc.nextLine();
  

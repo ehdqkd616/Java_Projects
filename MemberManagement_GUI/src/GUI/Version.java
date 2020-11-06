@@ -12,25 +12,25 @@ public class Version extends Frame {
 	
 	public Version()
 	{
-		frame2.setTitle("¹öÁ¯Á¤º¸");
+		frame2.setTitle("ë²„ì ¼ì •ë³´");
 		frame2.setSize(200, 166);
 		frame2.setLocation(550, 350);
 		frame2.setDefaultCloseOperation(frame2.DISPOSE_ON_CLOSE);
 		frame2.getContentPane().setLayout(null);
 		
-		JLabel lblNewLabel = new JLabel("Á¦ÀÛÀÚ : 1Á¶");
+		JLabel lblNewLabel = new JLabel("ì œì‘ì : 1ì¡°");
 		lblNewLabel.setBounds(12, 10, 160, 27);
 		frame2.getContentPane().add(lblNewLabel);
 		
-		JLabel label = new JLabel("ÃÖÀç¿ø, °í¸í¼ö, ¹Ú¼º¹Î");
+		JLabel label = new JLabel("ìµœì¬ì›, ê³ ëª…ìˆ˜, ë°•ì„±ë¯¼");
 		label.setBounds(12, 38, 160, 27);
 		frame2.getContentPane().add(label);
 		
-		JLabel label_1 = new JLabel( "ÇÁ·Î±×·¥ ¹öÁ¯ : v1.0");
+		JLabel label_1 = new JLabel( "í”„ë¡œê·¸ë¨ ë²„ì ¼ : v1.0");
 		label_1.setBounds(12, 66, 160, 27);
 		frame2.getContentPane().add(label_1);
 		
-		JLabel lblNewLabel_1 = new JLabel("µğÀÚÀÎ ÇùÂù : ÀÓº¸¿¬");
+		JLabel lblNewLabel_1 = new JLabel("ë””ìì¸ í˜‘ì°¬ : ì„ë³´ì—°");
 		lblNewLabel_1.setBounds(12, 103, 145, 15);
 		frame2.getContentPane().add(lblNewLabel_1);
 		frame2.setVisible(true);

@@ -6,13 +6,13 @@ import java.util.Vector;
 public class Member {
 	public static Vector<Member> MemeverVec = new Vector<Member>(30);
 
-	private String scustomernum; // °í°´¹øÈ£
-	private String sid; // ¾ÆÀÌµğ
-	private String spw; // ºñ¹Ğ¹øÈ£
+	private String scustomernum; // ê³ ê°ë²ˆí˜¸
+	private String sid; // ì•„ì´ë””
+	private String spw; // ë¹„ë°€ë²ˆí˜¸
 
-	private String sName; // ÀÌ¸§
-	private String sBirth; // »ı³â¿ùÀÏ
-	private String sPhone; // Æù¹øÈ£
+	private String sName; // ì´ë¦„
+	private String sBirth; // ìƒë…„ì›”ì¼
+	private String sPhone; // í°ë²ˆí˜¸
 
 	public Member() {
 
@@ -74,11 +74,11 @@ public class Member {
 
 	public ArrayList<String> RetrunList() {
 		ArrayList<String> arrayList = new ArrayList<String>();
-		arrayList.add("°í°´¹øÈ£");
-		arrayList.add("ÀÌ¸§");
-		arrayList.add("¾ÆÀÌµğ");
-		arrayList.add("ºñ¹Ğ¹øÈ£");
-		arrayList.add("ÀüÈ­¹øÈ£");
+		arrayList.add("ê³ ê°ë²ˆí˜¸");
+		arrayList.add("ì´ë¦„");
+		arrayList.add("ì•„ì´ë””");
+		arrayList.add("ë¹„ë°€ë²ˆí˜¸");
+		arrayList.add("ì „í™”ë²ˆí˜¸");
 		return arrayList;
 	}
 }

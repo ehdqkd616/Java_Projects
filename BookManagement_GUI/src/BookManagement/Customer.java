@@ -1,12 +1,12 @@
 package BookManagement;
 
 public class Customer {
-//	private String scustomernum; // °í°´¹øÈ£
-//	private String scustomerName; // ÀÌ¸§
-//	private String scustomerId; // ¾ÆÀÌµğ
-//	private String scustomerPw; // ºñ¹Ğ¹øÈ£
-//	private String scustomerPhone; // ÀüÈ­¹øÈ£
-//	private String scustomeremail;// ÀÌ¸ŞÀÏ
+//	private String scustomernum; // ê³ ê°ë²ˆí˜¸
+//	private String scustomerName; // ì´ë¦„
+//	private String scustomerId; // ì•„ì´ë””
+//	private String scustomerPw; // ë¹„ë°€ë²ˆí˜¸
+//	private String scustomerPhone; // ì „í™”ë²ˆí˜¸
+//	private String scustomeremail;// ì´ë©”ì¼
 //
 //	public Customer() {
 //
@@ -48,12 +48,12 @@ public class Customer {
 //
 //	public ArrayList<String> RetrunList() {
 //		ArrayList<String> arrayList = new ArrayList<String>();
-//		arrayList.add("°í°´¹øÈ£");
-//		arrayList.add("ÀÌ¸§");
-//		arrayList.add("¾ÆÀÌµğ");
-//		arrayList.add("ºñ¹Ğ¹øÈ£");
-//		arrayList.add("ÀüÈ­¹øÈ£");
-//		arrayList.add("ÀÌ¸ŞÀÏ");
+//		arrayList.add("ê³ ê°ë²ˆí˜¸");
+//		arrayList.add("ì´ë¦„");
+//		arrayList.add("ì•„ì´ë””");
+//		arrayList.add("ë¹„ë°€ë²ˆí˜¸");
+//		arrayList.add("ì „í™”ë²ˆí˜¸");
+//		arrayList.add("ì´ë©”ì¼");
 //		return arrayList;
 //	}
 }

@@ -16,7 +16,7 @@ public class AllSearch extends MemberManagements {
 	MyFrame frame5 = new MyFrame();
 	private JTable table_1;
 	public AllSearch() {
-		frame5.setTitle("ÀüÃ¼È¸¿ø");
+		frame5.setTitle("ì „ì²´íšŒì›");
 		frame5.setSize(700, 448);
 		frame5.setLocation(350, 250);
 		frame5.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
@@ -24,7 +24,7 @@ public class AllSearch extends MemberManagements {
 		
 		JTable table = null;
 		String[] column =  {
-			"ÄÚµå", "ÀÌ¸§", "³ªÀÌ", "¼ºº°", "ÀüÈ­¹øÈ£", "Á÷Àå¸í", "ÁÖ¼Ò"
+			"ì½”ë“œ", "ì´ë¦„", "ë‚˜ì´", "ì„±ë³„", "ì „í™”ë²ˆí˜¸", "ì§ì¥ëª…", "ì£¼ì†Œ"
 		};
 		Object[][] ob = new Object[list.size()][7];
 		for(int i=0; i<list.size(); i++){
@@ -38,13 +38,13 @@ public class AllSearch extends MemberManagements {
 		}
 		
 		table= new JTable(ob,column);
-		table.getColumn("ÄÚµå").setPreferredWidth(50);
-		table.getColumn("ÀÌ¸§").setPreferredWidth(50);
-		table.getColumn("³ªÀÌ").setPreferredWidth(50);
-		table.getColumn("¼ºº°").setPreferredWidth(50);
-		table.getColumn("ÀüÈ­¹øÈ£").setPreferredWidth(100);
-		table.getColumn("Á÷Àå¸í").setPreferredWidth(100);
-		table.getColumn("ÁÖ¼Ò").setPreferredWidth(260);
+		table.getColumn("ì½”ë“œ").setPreferredWidth(50);
+		table.getColumn("ì´ë¦„").setPreferredWidth(50);
+		table.getColumn("ë‚˜ì´").setPreferredWidth(50);
+		table.getColumn("ì„±ë³„").setPreferredWidth(50);
+		table.getColumn("ì „í™”ë²ˆí˜¸").setPreferredWidth(100);
+		table.getColumn("ì§ì¥ëª…").setPreferredWidth(100);
+		table.getColumn("ì£¼ì†Œ").setPreferredWidth(260);
 		DefaultTableCellRenderer dtcr = new DefaultTableCellRenderer();
 		dtcr.setHorizontalAlignment(SwingConstants.CENTER);
 		TableColumnModel tcm = table.getColumnModel();

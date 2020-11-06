@@ -24,7 +24,7 @@ public class MultiServerThread2 extends Thread {
 		multiChatRoom = tmpMultiChatRoom;
 
 		//////////////////////////////////////////////////////////////////////////////
-		// 1. ÀÔ/Ãâ·Â Stream »ı¼º
+		// 1. ì…/ì¶œë ¥ Stream ìƒì„±
 		//////////////////////////////////////////////////////////////////////////////
 		try {
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
@@ -32,7 +32,7 @@ public class MultiServerThread2 extends Thread {
 			// pw = new PrintWriter(socket.getOutputStream());
 
 		} catch (IOException e) {
-			System.out.println("MultiServerThread2 I/O Stream »ı¼º ½ÇÆĞ");
+			System.out.println("MultiServerThread2 I/O Stream ìƒì„± ì‹¤íŒ¨");
 		}
 		//////////////////////////////////////////////////////////////////////////////
 	}
@@ -41,7 +41,7 @@ public class MultiServerThread2 extends Thread {
 		String message = "";
 
 		//////////////////////////////////////////
-		// 1. ·Î±×ÀÎ Ã³¸®(Client ¾ÆÀÌµğ ¹Ş¾Æ¿À±â)
+		// 1. ë¡œê·¸ì¸ ì²˜ë¦¬(Client ì•„ì´ë”” ë°›ì•„ì˜¤ê¸°)
 		//////////////////////////////////////////
 		login();
 		//////////////////////////////////////////
@@ -49,24 +49,24 @@ public class MultiServerThread2 extends Thread {
 		try {
 			while (!message.equals("bye")) {
 				//////////////////////////////////////////////////////////////////
-				// 4. Client °¡ º¸³½ ¸Ş½ÃÁö ¹ŞÀº ÈÄ Server ¿¡¼­ Ãâ·Â
+				// 4. Client ê°€ ë³´ë‚¸ ë©”ì‹œì§€ ë°›ì€ í›„ Server ì—ì„œ ì¶œë ¥
 				//////////////////////////////////////////////////////////////////
 				message = br.readLine();
 
-				// ¹ŞÀº ¸Ş½ÃÁöÃâ·Â
-				System.out.println("¹ŞÀº ¸Ş½ÃÁö ==> " + strId + " : " + message);
+				// ë°›ì€ ë©”ì‹œì§€ì¶œë ¥
+				System.out.println("ë°›ì€ ë©”ì‹œì§€ ==> " + strId + " : " + message);
 				//////////////////////////////////////////////////////////////////
 
 				////////////////////////////////////////////////////////////////
-				// bye ÀÔ·Â ½Ã ¼­¹ö ³ª°¨
+				// bye ì…ë ¥ ì‹œ ì„œë²„ ë‚˜ê°
 				////////////////////////////////////////////////////////////////
 				if (message.equals("bye")) {
-					multiChatRoom.broadCasting(strId + "´ÔÀÌ ÅğÀåÇÏ¼Ì½À´Ï´Ù.");
+					multiChatRoom.broadCasting(strId + "ë‹˜ì´ í‡´ì¥í•˜ì…¨ìŠµë‹ˆë‹¤.");
 				}
 				////////////////////////////////////////////////////////////////
 
 				/////////////////////////////////////////////////////
-				// 5. ¸ğµç Client ¿¡°Ô ¸Ş½ÃÁö Àü¼Û
+				// 5. ëª¨ë“  Client ì—ê²Œ ë©”ì‹œì§€ ì „ì†¡
 				/////////////////////////////////////////////////////
 				multiChatRoom.broadCasting(strId + " : " + message);
 				/////////////////////////////////////////////////////
@@ -75,7 +75,7 @@ public class MultiServerThread2 extends Thread {
 
 		} catch (IOException e) {
 			System.out.println(e.getMessage());
-			System.out.println("¸Ş¼¼Áö¸¦ ¼ö½ÅÇÏ¿© ¼Û½ÅÁß ¿¹¿Ü ¹ß»ı....");
+			System.out.println("ë©”ì„¸ì§€ë¥¼ ìˆ˜ì‹ í•˜ì—¬ ì†¡ì‹ ì¤‘ ì˜ˆì™¸ ë°œìƒ....");
 		} finally {
 			multiChatRoom.exitRoom(this);
 
@@ -87,56 +87,56 @@ public class MultiServerThread2 extends Thread {
 			} catch (Exception e) {
 			}
 
-			System.out.println("MultiServerThread2 Á¾·á");
+			System.out.println("MultiServerThread2 ì¢…ë£Œ");
 		}
 	}
 
-	// ·Î±×ÀÎ (Client ¿¡¼­ Server ·Î ID Àü¼ÛÇØ¼­ ¹ŞÀ½)
+	// ë¡œê·¸ì¸ (Client ì—ì„œ Server ë¡œ ID ì „ì†¡í•´ì„œ ë°›ìŒ)
 	public void login() {
-		// String members[] = {"ÀÌ¿¹Áø", "Á¶¼öÈñ", "Á¶¾Æ¶õ"}; //Á¢¼Ó °¡´ÉÇÑ ¾ÆÀÌµğ°¡ 3°³¸¸ Á¸ÀçÇÑ´Ù°í °¡Á¤ÇÑ´Ù.
+		// String members[] = {"ì´ì˜ˆì§„", "ì¡°ìˆ˜í¬", "ì¡°ì•„ë€"}; //ì ‘ì† ê°€ëŠ¥í•œ ì•„ì´ë””ê°€ 3ê°œë§Œ ì¡´ì¬í•œë‹¤ê³  ê°€ì •í•œë‹¤.
 		// String tempId = null;
 
 		try {
-			System.out.println("Client ID ¹Ş¾Æ¿À´Â Áß....");
+			System.out.println("Client ID ë°›ì•„ì˜¤ëŠ” ì¤‘....");
 			br = new BufferedReader(new InputStreamReader(socket.getInputStream()));
 
 			///////////////////////////////////////////////
-			// Client °¡ ÀÔ·ÂÇÑ ID ¹Ş¾Æ¿À±â
+			// Client ê°€ ì…ë ¥í•œ ID ë°›ì•„ì˜¤ê¸°
 			///////////////////////////////////////////////
 			// tempId = br.readLine();
 			strId = br.readLine();
 			// System.out.println("Client ID : " + strId);
 
 			///////////////////////////
-			// 3. Á¢¼ÓÀÚ ¼ö º¸¿©ÁÖ±â
+			// 3. ì ‘ì†ì ìˆ˜ ë³´ì—¬ì£¼ê¸°
 			///////////////////////////
 			multiChatRoom.display();
 			///////////////////////////
 
 			sendMessage("ok");
-			// System.out.println("¼­¹ö - ·Î±×ÀÎ ÀÌ¸§ È®ÀÎ");
+			// System.out.println("ì„œë²„ - ë¡œê·¸ì¸ ì´ë¦„ í™•ì¸");
 			///////////////////////////////////////////////
 
 		} catch (IOException e) {
-			System.out.println("MultiServerThread2 login() ¿¹¿Ü ¹ß»ı");
+			System.out.println("MultiServerThread2 login() ì˜ˆì™¸ ë°œìƒ");
 		}
 	}
 
-	// ¸Ş¼¼Áö Àü¼Û
+	// ë©”ì„¸ì§€ ì „ì†¡
 	void sendMessage(String message) {
 		try {
 			///////////////////////////////////////////
-			// ¸Ş½ÃÁö Àü¼Û
+			// ë©”ì‹œì§€ ì „ì†¡
 			///////////////////////////////////////////
 			// message = message + System.getProperty("line.separator");
-			bw.write(message + "\n"); // \n : ÁÙ¹Ù²Ş
-			bw.flush(); // Ãâ·Â ¹öÆÛ¸¦ ºñ¿ì´Â ¸Ş¼­µå
+			bw.write(message + "\n"); // \n : ì¤„ë°”ê¿ˆ
+			bw.flush(); // ì¶œë ¥ ë²„í¼ë¥¼ ë¹„ìš°ëŠ” ë©”ì„œë“œ
 
 			// pw.println(message);
 			// pw.flush();
 			///////////////////////////////////////////
 		} catch (Exception e) {
-			System.out.println("MultiServerThread2 sendMessage() ¿¹¿Ü ¹ß»ı");
+			System.out.println("MultiServerThread2 sendMessage() ì˜ˆì™¸ ë°œìƒ");
 		}
 	}
 
